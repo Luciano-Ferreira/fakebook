@@ -1,14 +1,15 @@
-interface Params {
+interface Props {
   avatar: string;
   author: string;
   bio: string;
   content: string;
   publishedAt: string;
 }
-export function Post({ author, bio, avatar, publishedAt, content }: Params) {
+
+export function Post({ author, bio, avatar, publishedAt, content }: Props) {
   return (
-    <div className='flex flex-col'>
-      <div className='flex'>
+    <article className='flex flex-col'>
+      <header className='flex'>
         <div className='flex'>
           <img
             className='h-16 w-16 rounded-full border-2 border-green-500'
@@ -20,9 +21,12 @@ export function Post({ author, bio, avatar, publishedAt, content }: Params) {
             <p>{bio}</p>
           </div>
         </div>
-        <p>{publishedAt}</p>
-      </div>
+        <time 
+          title='11 de maio às 08:13'
+          dateTime='2022-05-11 08:13:30'
+        >{publishedAt}</time>
+      </header>
       <p>{content}</p>
-    </div>
+    </article>
   )
 }

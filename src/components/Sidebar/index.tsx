@@ -1,13 +1,13 @@
 import { PencilLine } from 'phosphor-react';
 
-interface Params {
+interface Props {
   banner: string;
   username: string;
   avatar: string;
   bio: string;
 }
 
-export function Sidebar({ banner, username, bio, avatar }: Params) {
+export function Sidebar({ banner, username, bio, avatar }: Props) {
   return (
     <aside className='bg-gray-800 rounded-lg overflow-hidden'>
       <img 
