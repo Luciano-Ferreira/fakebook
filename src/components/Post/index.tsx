@@ -26,7 +26,9 @@ export function Post({ author, bio, avatar, publishedAt, content }: Props) {
           dateTime='2022-05-11 08:13:30'
         >{publishedAt}</time>
       </header>
-      <p>{content}</p>
+      <div className=''>
+        <p>{content}</p>
+      </div>
     </article>
   )
 }
