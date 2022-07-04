@@ -1,4 +1,4 @@
-export function Logo() {
+export function Logo(): JSX.Element {
   return (
     <svg 
       width="150" 

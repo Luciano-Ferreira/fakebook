@@ -7,7 +7,7 @@ interface Props {
   bio: string;
 }
 
-export function Sidebar({ banner, username, bio, avatar }: Props) {
+export function Sidebar({ banner, username, bio, avatar }: Props): JSX.Element {
   return (
     <aside className='bg-gray-800 rounded-lg overflow-hidden'>
       <img 
@@ -18,7 +18,7 @@ export function Sidebar({ banner, username, bio, avatar }: Props) {
         <img 
           src={avatar} 
           alt={username}
-          className='h-16 w-16 rounded-full flex border-4 border-gray-800 outline outline-2 outline-green-500'
+          className='h-[calc(5rem_+_12px)] w-[calc(5rem_+_12px)] rounded-full flex border-4 border-gray-800 outline outline-2 outline-green-500'
         />
         <strong
           className='mt-1 text-gray-100 leading-[1.6]'
