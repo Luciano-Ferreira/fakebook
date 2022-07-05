@@ -7,7 +7,7 @@ export function Feed(): JSX.Element {
     <>
       <Header />
 
-      <div className='max-w-[70rem] my-2 mx-auto py-0 px-1 grid grid-cols-[256px_1fr] gap-2 items-start'>
+      <div className='max-w-[70rem] my-2 mx-auto py-0 px-1 gap-2 items-start grid lg:grid-cols-[256px_1fr] md:grid-cols-1'>
         <Sidebar
           banner='https://images.unsplash.com/29/night-square.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=50'
           bio='Security engineer'
