@@ -17,19 +17,16 @@ export function Feed(): JSX.Element {
         <main>
           <Post
             author='Luciano Silva'
-            avatar='https://avatars.githubusercontent.com/u/46464433?v=4'
             bio='Full Stack Developer'
             publishedAt='há um mês'
           />
           <Post
             author='Luciano Silva'
-            avatar='https://avatars.githubusercontent.com/u/46464433?v=4'
             bio='Full Stack Developer'
             publishedAt='há um mês'
           />
           <Post
             author='Luciano Silva'
-            avatar='https://avatars.githubusercontent.com/u/46464433?v=4'
             bio='Full Stack Developer'
             publishedAt='há um mês'
           />
