@@ -43,7 +43,9 @@ export function Post({ author, bio, avatar, publishedAt }: Props): JSX.Element {
         <textarea 
           placeholder='Deixe um comentário'
         />
-        <button type='submit'>Comentar</button>
+        <footer>
+          <button type='submit'>Publicar</button>
+        </footer>
       </form>
     </article>
   )
