@@ -19,10 +19,6 @@
   @apply flex gap-4
 }
 
-.author > img {
-  @apply h-[calc(3rem_+_12px)] w-[calc(3rem_+_12px)] rounded-full border-2 border-green-500
-}
-
 .authorInfo {
   @apply flex flex-col
 }

@@ -1,22 +1,22 @@
+import { Avatar } from '../Avatar';
 import { Comment } from '../Comment';
 
-import styles from './Post.module.scss';
+import styles from './styles.module.scss';
 
 interface Props {
-  avatar: string;
   author: string;
   bio: string;
   publishedAt: string;
 }
 
-export function Post({ author, bio, avatar, publishedAt }: Props): JSX.Element {
+export function Post({ author, bio, publishedAt }: Props): JSX.Element {
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <img
-            src={avatar}
-            alt={author}
+          <Avatar 
+            src='https://github.com/luciano-ferreira.png'
+            outlined
           />
           <div className={styles.authorInfo}>
             <strong>{author}</strong>
