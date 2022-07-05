@@ -16,7 +16,7 @@ export function Post({ author, bio, publishedAt }: Props): JSX.Element {
         <div className={styles.author}>
           <Avatar 
             src='https://github.com/luciano-ferreira.png'
-            outlined
+            withBorder
           />
           <div className={styles.authorInfo}>
             <strong>{author}</strong>
