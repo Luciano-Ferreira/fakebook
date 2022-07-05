@@ -72,5 +72,9 @@
 }
 
 .commentForm footer > button[type=submit] {
-  @apply py-4 px-3 mt-4 rounded-lg border-0 bg-green-500 text-white-100 font-bold cursor-pointer hover:bg-green-300 transition
+  @apply py-3 px-3 mt-4 rounded-lg border-0 bg-green-500 text-white-100 font-bold cursor-pointer hover:bg-green-300 transition
+}
+
+.commentList {
+  @apply mt-8
 }

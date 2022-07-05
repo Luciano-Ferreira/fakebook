@@ -1,3 +1,5 @@
+import { Comment } from '../Comment';
+
 import styles from './Post.module.scss';
 
 interface Props {
@@ -24,7 +26,8 @@ export function Post({ author, bio, avatar, publishedAt }: Props): JSX.Element {
         <time
           title='11 de maio às 08:13'
           dateTime='2022-05-11 08:13:30'
-        >{publishedAt}</time>
+        >{publishedAt}
+        </time>
       </header>
       <div className={styles.content}>
         <p>Fala galeraa 👋</p>
@@ -47,6 +50,11 @@ export function Post({ author, bio, avatar, publishedAt }: Props): JSX.Element {
           <button type='submit'>Publicar</button>
         </footer>
       </form>
+      <div className={styles.commentList}>
+        <Comment />
+        <Comment />
+        <Comment />
+      </div>
     </article>
   )
 }
