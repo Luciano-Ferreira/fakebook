@@ -1,3 +1,4 @@
+import { gql, useQuery } from '@apollo/client';
 import { Avatar } from '../Avatar';
 import { Comment } from '../Comment';
 
@@ -9,12 +10,47 @@ interface Props {
   publishedAt: string;
 }
 
+const GET_POST_WITH_COMMENTS = gql`
+  query GetPostWithComments {
+    posts(orderBy: createdAt_ASC) {
+      customer {
+        id
+        avatar
+        name
+        role
+      }
+      createdAt
+      content {
+        html
+      }
+      comments(orderBy: createdAt_ASC) {
+          author {
+            id
+            avatar
+            name
+            role
+          }
+          createdAt
+          content {
+            html
+          }
+        likes
+      }
+    }
+  }
+`
+
 export function Post({ author, bio, publishedAt }: Props): JSX.Element {
+  const { data, loading, error } = useQuery(GET_POST_WITH_COMMENTS);
+  if (loading) return <p>loading...</p>
+  if (error) return <p>error...</p>
+  console.log(JSON.stringify(data, null, 2))
+
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar 
+          <Avatar
             src='https://github.com/luciano-ferreira.png'
             withBorder
           />
@@ -29,7 +65,7 @@ export function Post({ author, bio, publishedAt }: Props): JSX.Element {
         >{publishedAt}
         </time>
       </header>
-      <div className={styles.content}>
+      <div className={styles.content} >
         <p>Fala galeraa 👋</p>
         <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
         <p>
@@ -43,7 +79,7 @@ export function Post({ author, bio, publishedAt }: Props): JSX.Element {
         className={styles.commentForm}
       >
         <strong>Deixe seu feedback</strong>
-        <textarea 
+        <textarea
           placeholder='Deixe um comentário'
         />
         <footer>

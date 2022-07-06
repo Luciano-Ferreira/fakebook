@@ -1,0 +1,27 @@
+query GetPostWithComments {
+  posts(orderBy: createdAt_ASC) {
+    customer {
+      id
+      avatar
+      name
+      role
+    }
+    createdAt
+    content {
+      html
+    }
+    comments(orderBy: createdAt_ASC) {
+        author {
+          id
+          avatar
+          name
+          role
+        }
+        createdAt
+        content {
+          html
+        }
+      likes
+    }
+  }
+}
