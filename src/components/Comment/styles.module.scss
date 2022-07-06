@@ -7,20 +7,24 @@
   @apply flex-1
 }
 
-.commentContent {
+.commentContainer {
   @apply bg-gray-700 rounded-lg p-4 
 }
 
-.commentContent header {
+.commentContainer header {
   @apply flex items-start justify-between
 }
 
-.commentContent header button {
+.commentContainer header button {
   @apply bg-transparent border-0 text-gray-400 cursor-pointer leading-[0] hover:text-red-500
 }
 
-.commentContent p {
+.commentContainer p {
   @apply mt-4 text-gray-300
+}
+
+.commentContent a {
+    @apply font-bold text-green-500 hover:text-green-300
 }
 
 .authorAndTime > strong {

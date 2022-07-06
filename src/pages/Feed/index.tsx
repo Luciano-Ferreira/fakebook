@@ -1,8 +1,23 @@
 import { Header } from '../../components/Header';
 import { Post } from '../../components/Post';
 import { Sidebar } from '../../components/Sidebar';
+import { useGetPostWithCommentsQuery } from '../../graphql/generated';
 
 export function Feed(): JSX.Element {
+
+  const { data, loading, error } = useGetPostWithCommentsQuery();
+  if (loading) return <p>loading...</p>
+  if (error) return <p>error...</p>
+  console.log(JSON.stringify(data, null, 2))
+
+  if (!data || !data.posts) {
+    return (
+      <div className='flex-1'>
+        <h1>Loading...</h1>
+      </div>
+    )
+  }
+
   return (
     <>
       <Header />
@@ -15,21 +30,19 @@ export function Feed(): JSX.Element {
           avatar='https://user-images.githubusercontent.com/46464433/177191269-5cabb63b-09db-4ed0-9192-bef56c8a7fe7.jpeg'
         />
         <main>
-          <Post
-            author='Luciano Silva'
-            bio='Full Stack Developer'
-            publishedAt='há um mês'
-          />
-          <Post
-            author='Luciano Silva'
-            bio='Full Stack Developer'
-            publishedAt='há um mês'
-          />
-          <Post
-            author='Luciano Silva'
-            bio='Full Stack Developer'
-            publishedAt='há um mês'
-          />
+          {data?.posts.map(({ id, customer, createdAt, content, comments }) => {
+            {console.log(comments)}
+
+            return (
+              <Post
+                key={id}
+                customer={customer}
+                createdAt={createdAt}
+                content={content.html}
+                comments={comments}
+              />
+            )
+          })}
         </main>
       </div>
     </>

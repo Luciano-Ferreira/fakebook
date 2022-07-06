@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
 
 interface Props {
-  src: string;
+  src?: string;
   alt?: string;
   withBorder?: boolean;
 }

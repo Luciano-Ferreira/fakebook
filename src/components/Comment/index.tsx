@@ -1,36 +1,40 @@
 import { ThumbsUp, Trash } from 'phosphor-react';
 import { Avatar } from '../Avatar';
 import styles from './styles.module.scss';
+import { IComment } from './@types';
 
-export function Comment(): JSX.Element {
+
+
+
+export function Comment({ author, createdAt, content, likes  }: IComment): JSX.Element {
   return (
     <div className={styles.comment}>
       <Avatar 
-        src='https://github.com/luciano-ferreira.png'
+        src={author?.avatar}
       />
 
       <div className={styles.commentBox}>
-        <div className={styles.commentContent}>
+        <div className={styles.commentContainer}>
           <header>
             <div className={styles.authorAndTime}>
-            <strong>Luciano Silva</strong>
+            <strong>{author?.name}</strong>
             <time
-              title='11 de maio às 08:13'
-              dateTime='2022-05-11 08:13:30'
+              title={String(createdAt)}
+              dateTime={String(createdAt)}
             >
-              Cerca de 1h atrás
+              {String(createdAt)}
             </time>
             </div>
             <button title='Deletar comentário'>
               <Trash size={24} />
             </button>
           </header>
-
-          <p>Muito bom Dev parabains 👊</p>
+          <div className={styles.commentContent} dangerouslySetInnerHTML={{ __html: content ? content : '' }}>
+          </div>
         </div>
         <footer className={styles.footerComment}>
           <button>
-            <ThumbsUp size={20} /> Aplaudir <span>20</span>
+            <ThumbsUp size={20} /> Aplaudir <span>{likes}</span>
           </button>
         </footer>
       </div>

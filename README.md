@@ -14,4 +14,4 @@ Technologies:
 - phosphor icons
 - Graphql
 - Apollo Client
-- Codegen
+- Codegen (Graphql Code Generator)
