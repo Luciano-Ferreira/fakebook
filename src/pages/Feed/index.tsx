@@ -8,8 +8,6 @@ export function Feed(): JSX.Element {
   const { data, loading, error } = useGetPostWithCommentsQuery();
   if (loading) return <p>loading...</p>
   if (error) return <p>error...</p>
-  console.log(JSON.stringify(data, null, 2))
-
   if (!data || !data.posts) {
     return (
       <div className='flex-1'>
@@ -31,8 +29,6 @@ export function Feed(): JSX.Element {
         />
         <main>
           {data?.posts.map(({ id, customer, createdAt, content, comments }) => {
-            {console.log(comments)}
-
             return (
               <Post
                 key={id}

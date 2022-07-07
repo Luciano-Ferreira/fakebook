@@ -7,15 +7,25 @@ import { IPost } from './@types';
 
 
 export function Post({ customer, createdAt, comments, content }: IPost): JSX.Element {
+  
 
-  if (!comments) {
+  if (!comments || !customer || !createdAt || !content) {
     return (
       <div className='flex-1'>
         <h1>Loading...</h1>
       </div>
     )
   }
-  console.log(JSON.stringify(comments, null, 2))
+
+  const publishedDatePostFormatted = new Intl.DateTimeFormat('pt-BR', {
+    year: 'numeric',
+    day: '2-digit',
+    month: 'long',
+    hour: '2-digit',
+    minute: '2-digit'
+  }).format(new Date(createdAt));
+
+
   return (
     <article className={styles.post}>
       <header>
@@ -32,7 +42,7 @@ export function Post({ customer, createdAt, comments, content }: IPost): JSX.Ele
         <time
           title={String(createdAt)}
           dateTime={String(createdAt)}
-        >{String(createdAt)}
+        >{String(publishedDatePostFormatted)}
         </time>
       </header>
       <div className={styles.content} dangerouslySetInnerHTML={{ __html: content ? content : '' }}>

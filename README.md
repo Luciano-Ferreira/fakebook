@@ -1,8 +1,11 @@
 Technologies:
 
+- Javascript
+ - Intl
 - Reactjs
   - prop drilling
   - componentization
+  - iteração
 - Typescript
 - SASS
   - SCSS Modules

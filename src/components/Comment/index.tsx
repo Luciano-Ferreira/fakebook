@@ -3,9 +3,6 @@ import { Avatar } from '../Avatar';
 import styles from './styles.module.scss';
 import { IComment } from './@types';
 
-
-
-
 export function Comment({ author, createdAt, content, likes  }: IComment): JSX.Element {
   return (
     <div className={styles.comment}>
