@@ -33,6 +33,7 @@ export function Comment({ author, createdAt, content, likes  }: IComment): JSX.E
           <header>
             <div className={styles.authorAndTime}>
             <strong>{author?.name}</strong>
+            <span>{author?.role}</span>
             <time
               title={publishedDateCommentFormatted}
               dateTime={String(createdAt)}

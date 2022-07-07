@@ -27,6 +27,10 @@
     @apply font-bold text-green-500 hover:text-green-300
 }
 
+.authorAndTime > span {
+  @apply block text-[0.75rem] leading-[1.6]
+}
+
 .authorAndTime > strong {
   @apply block text-[0.875rem] leading-[1.6]
 }
