@@ -1,5 +1,7 @@
 import { Avatar } from '../Avatar';
 import { Comment } from '../Comment';
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
 
 import styles from './styles.module.scss';
 
@@ -17,14 +19,14 @@ export function Post({ customer, createdAt, comments, content }: IPost): JSX.Ele
     )
   }
 
-  const publishedDatePostFormatted = new Intl.DateTimeFormat('pt-BR', {
-    year: 'numeric',
-    day: '2-digit',
-    month: 'long',
-    hour: '2-digit',
-    minute: '2-digit'
-  }).format(new Date(createdAt));
+  const publishedDatePostFormatted = format(new Date(createdAt), "d' de 'LLLL' de 'Y' às 'HH':'mm", {
+    locale: ptBR,
+  });
 
+  const publishedDatePostRelativeToNow = formatDistanceToNow(new Date(createdAt), {
+    locale: ptBR,
+    addSuffix: true,
+  });
 
   return (
     <article className={styles.post}>
@@ -40,9 +42,9 @@ export function Post({ customer, createdAt, comments, content }: IPost): JSX.Ele
           </div>
         </div>
         <time
-          title={String(createdAt)}
+          title={publishedDatePostFormatted}
           dateTime={String(createdAt)}
-        >{String(publishedDatePostFormatted)}
+        >{publishedDatePostRelativeToNow}
         </time>
       </header>
       <div className={styles.content} dangerouslySetInnerHTML={{ __html: content ? content : '' }}>
