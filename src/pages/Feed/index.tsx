@@ -1,11 +1,11 @@
 import { Header } from '../../components/Header';
 import { Post } from '../../components/Post';
 import { Sidebar } from '../../components/Sidebar';
-import { useGetPostWithCommentsQuery } from '../../graphql/generated';
+import { useGetPostsWithCommentsQuery } from '../../graphql/generated';
 
 export function Feed(): JSX.Element {
 
-  const { data, loading, error } = useGetPostWithCommentsQuery();
+  const { data, loading, error } = useGetPostsWithCommentsQuery();
   if (loading) return <p>loading...</p>
   if (error) return <p>error...</p>
   if (!data || !data.posts) {

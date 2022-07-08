@@ -1,7 +1,8 @@
-query GetPostWithComments {
+query GetPostsWithComments {
   posts(orderBy: createdAt_ASC) {
     id
     customer {
+      id
       avatar
       name
       role
@@ -10,18 +11,19 @@ query GetPostWithComments {
     content {
       html
     }
-    comments(orderBy: createdAt_ASC) {
-        id
-        author {
-          avatar
-          name
-          role
-        }
-        createdAt
-        content {
-          html
-        }
+    comments {
+      id
       likes
+      createdAt
+      author {
+        id
+        name
+        role
+        avatar
+      }
+      content {
+        html
+      }
     }
   }
 }

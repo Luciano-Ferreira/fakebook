@@ -1223,7 +1223,8 @@ export type Comment = Node & {
   history: Array<Version>;
   /** The unique identifier */
   id: Scalars['ID'];
-  likes: Scalars['Int'];
+  likes?: Maybe<Scalars['Int']>;
+  post?: Maybe<CommentPost>;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>;
   /** User that last published this document */
@@ -1259,6 +1260,11 @@ export type CommentHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
+};
+
+
+export type CommentPostArgs = {
+  locales?: InputMaybe<Array<Locale>>;
 };
 
 
@@ -1301,10 +1307,10 @@ export type CommentConnection = {
 
 export type CommentCreateInput = {
   author?: InputMaybe<AuthorCreateOneInlineInput>;
-  cl58s8sn05b4q01ued8s8azgt?: InputMaybe<PostCreateManyInlineInput>;
   content: Scalars['RichTextAST'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  likes: Scalars['Int'];
+  likes?: InputMaybe<Scalars['Int']>;
+  post?: InputMaybe<CommentPostCreateOneInlineInput>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
@@ -1442,11 +1448,91 @@ export enum CommentOrderByInput {
   UpdatedAtDesc = 'updatedAt_DESC'
 }
 
+export type CommentPost = Post;
+
+export type CommentPostConnectInput = {
+  Post?: InputMaybe<PostConnectInput>;
+};
+
+export type CommentPostCreateInput = {
+  Post?: InputMaybe<PostCreateInput>;
+};
+
+export type CommentPostCreateManyInlineInput = {
+  /** Connect multiple existing CommentPost documents */
+  connect?: InputMaybe<Array<CommentPostWhereUniqueInput>>;
+  /** Create and connect multiple existing CommentPost documents */
+  create?: InputMaybe<Array<CommentPostCreateInput>>;
+};
+
+export type CommentPostCreateOneInlineInput = {
+  /** Connect one existing CommentPost document */
+  connect?: InputMaybe<CommentPostWhereUniqueInput>;
+  /** Create and connect one CommentPost document */
+  create?: InputMaybe<CommentPostCreateInput>;
+};
+
+export type CommentPostUpdateInput = {
+  Post?: InputMaybe<PostUpdateInput>;
+};
+
+export type CommentPostUpdateManyInlineInput = {
+  /** Connect multiple existing CommentPost documents */
+  connect?: InputMaybe<Array<CommentPostConnectInput>>;
+  /** Create and connect multiple CommentPost documents */
+  create?: InputMaybe<Array<CommentPostCreateInput>>;
+  /** Delete multiple CommentPost documents */
+  delete?: InputMaybe<Array<CommentPostWhereUniqueInput>>;
+  /** Disconnect multiple CommentPost documents */
+  disconnect?: InputMaybe<Array<CommentPostWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing CommentPost documents */
+  set?: InputMaybe<Array<CommentPostWhereUniqueInput>>;
+  /** Update multiple CommentPost documents */
+  update?: InputMaybe<Array<CommentPostUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple CommentPost documents */
+  upsert?: InputMaybe<Array<CommentPostUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type CommentPostUpdateManyWithNestedWhereInput = {
+  Post?: InputMaybe<PostUpdateManyWithNestedWhereInput>;
+};
+
+export type CommentPostUpdateOneInlineInput = {
+  /** Connect existing CommentPost document */
+  connect?: InputMaybe<CommentPostWhereUniqueInput>;
+  /** Create and connect one CommentPost document */
+  create?: InputMaybe<CommentPostCreateInput>;
+  /** Delete currently connected CommentPost document */
+  delete?: InputMaybe<Scalars['Boolean']>;
+  /** Disconnect currently connected CommentPost document */
+  disconnect?: InputMaybe<Scalars['Boolean']>;
+  /** Update single CommentPost document */
+  update?: InputMaybe<CommentPostUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single CommentPost document */
+  upsert?: InputMaybe<CommentPostUpsertWithNestedWhereUniqueInput>;
+};
+
+export type CommentPostUpdateWithNestedWhereUniqueInput = {
+  Post?: InputMaybe<PostUpdateWithNestedWhereUniqueInput>;
+};
+
+export type CommentPostUpsertWithNestedWhereUniqueInput = {
+  Post?: InputMaybe<PostUpsertWithNestedWhereUniqueInput>;
+};
+
+export type CommentPostWhereInput = {
+  Post?: InputMaybe<PostWhereInput>;
+};
+
+export type CommentPostWhereUniqueInput = {
+  Post?: InputMaybe<PostWhereUniqueInput>;
+};
+
 export type CommentUpdateInput = {
   author?: InputMaybe<AuthorUpdateOneInlineInput>;
-  cl58s8sn05b4q01ued8s8azgt?: InputMaybe<PostUpdateManyInlineInput>;
   content?: InputMaybe<Scalars['RichTextAST']>;
   likes?: InputMaybe<Scalars['Int']>;
+  post?: InputMaybe<CommentPostUpdateOneInlineInput>;
 };
 
 export type CommentUpdateManyInlineInput = {
@@ -3158,7 +3244,6 @@ export type PostCommentsArgs = {
   first?: InputMaybe<Scalars['Int']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
-  orderBy?: InputMaybe<CommentOrderByInput>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<CommentWhereInput>;
 };
@@ -5378,17 +5463,18 @@ export enum _SystemDateTimeFieldVariation {
   Localization = 'localization'
 }
 
-export type GetPostWithCommentsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetPostsWithCommentsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPostWithCommentsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, createdAt: any, customer?: { __typename?: 'Customer', avatar: string, name: string, role: string } | null, content: { __typename?: 'RichText', html: string }, comments: Array<{ __typename?: 'Comment', id: string, createdAt: any, likes: number, author?: { __typename?: 'Author', avatar: string, name: string, role: string } | null, content: { __typename?: 'RichText', html: string } }> }> };
+export type GetPostsWithCommentsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, createdAt: any, customer?: { __typename?: 'Customer', id: string, avatar: string, name: string, role: string } | null, content: { __typename?: 'RichText', html: string }, comments: Array<{ __typename?: 'Comment', id: string, likes?: number | null, createdAt: any, author?: { __typename?: 'Author', id: string, name: string, role: string, avatar: string } | null, content: { __typename?: 'RichText', html: string } }> }> };
 
 
-export const GetPostWithCommentsDocument = gql`
-    query GetPostWithComments {
+export const GetPostsWithCommentsDocument = gql`
+    query GetPostsWithComments {
   posts(orderBy: createdAt_ASC) {
     id
     customer {
+      id
       avatar
       name
       role
@@ -5397,46 +5483,47 @@ export const GetPostWithCommentsDocument = gql`
     content {
       html
     }
-    comments(orderBy: createdAt_ASC) {
+    comments {
       id
+      likes
+      createdAt
       author {
-        avatar
+        id
         name
         role
+        avatar
       }
-      createdAt
       content {
         html
       }
-      likes
     }
   }
 }
     `;
 
 /**
- * __useGetPostWithCommentsQuery__
+ * __useGetPostsWithCommentsQuery__
  *
- * To run a query within a React component, call `useGetPostWithCommentsQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetPostWithCommentsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetPostsWithCommentsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostsWithCommentsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetPostWithCommentsQuery({
+ * const { data, loading, error } = useGetPostsWithCommentsQuery({
  *   variables: {
  *   },
  * });
  */
-export function useGetPostWithCommentsQuery(baseOptions?: Apollo.QueryHookOptions<GetPostWithCommentsQuery, GetPostWithCommentsQueryVariables>) {
+export function useGetPostsWithCommentsQuery(baseOptions?: Apollo.QueryHookOptions<GetPostsWithCommentsQuery, GetPostsWithCommentsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetPostWithCommentsQuery, GetPostWithCommentsQueryVariables>(GetPostWithCommentsDocument, options);
+        return Apollo.useQuery<GetPostsWithCommentsQuery, GetPostsWithCommentsQueryVariables>(GetPostsWithCommentsDocument, options);
       }
-export function useGetPostWithCommentsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPostWithCommentsQuery, GetPostWithCommentsQueryVariables>) {
+export function useGetPostsWithCommentsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPostsWithCommentsQuery, GetPostsWithCommentsQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetPostWithCommentsQuery, GetPostWithCommentsQueryVariables>(GetPostWithCommentsDocument, options);
+          return Apollo.useLazyQuery<GetPostsWithCommentsQuery, GetPostsWithCommentsQueryVariables>(GetPostsWithCommentsDocument, options);
         }
-export type GetPostWithCommentsQueryHookResult = ReturnType<typeof useGetPostWithCommentsQuery>;
-export type GetPostWithCommentsLazyQueryHookResult = ReturnType<typeof useGetPostWithCommentsLazyQuery>;
-export type GetPostWithCommentsQueryResult = Apollo.QueryResult<GetPostWithCommentsQuery, GetPostWithCommentsQueryVariables>;
+export type GetPostsWithCommentsQueryHookResult = ReturnType<typeof useGetPostsWithCommentsQuery>;
+export type GetPostsWithCommentsLazyQueryHookResult = ReturnType<typeof useGetPostsWithCommentsLazyQuery>;
+export type GetPostsWithCommentsQueryResult = Apollo.QueryResult<GetPostsWithCommentsQuery, GetPostsWithCommentsQueryVariables>;

@@ -6,7 +6,7 @@ import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
 export function Comment({ author, createdAt, content, likes  }: IComment): JSX.Element {
-  if (!author || !likes || !createdAt || !content) {
+  if (!author || !createdAt || !content) {
     return (
       <div className='flex-1'>
         <h1>Loading...</h1>

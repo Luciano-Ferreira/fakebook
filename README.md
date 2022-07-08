@@ -8,6 +8,11 @@ Technologies:
   - prop drilling
   - componentization
   - iteração
+  - State
+    - imutabilidade
+    - spread
+    - scoped state
+    
 
 - SASS
   - SCSS Modules
@@ -25,6 +30,7 @@ Technologies:
 - Apollo Client
 - Codegen (Graphql Code Generator)
 - GraphCMS
+  - [help](https://graphcms.com/blog/working-with-the-graphcms-rich-text-field)
 
 - [date-fns](https://date-fns.org/v2.28.0/docs/format)
   - format

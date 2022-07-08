@@ -9,5 +9,5 @@ export interface IComment {
   author?: Author | null;
   createdAt?: Date;
   content?: string;
-  likes?: number
+  likes?: number | null;
 }

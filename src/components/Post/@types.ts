@@ -19,7 +19,7 @@ interface Comment {
   author?: Author | null;
   createdAt?: Date;
   content?: any;
-  likes?: number;
+  likes?: number | null;
 }
 
 export interface IPost {
