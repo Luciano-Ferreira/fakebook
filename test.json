@@ -1,0 +1,386 @@
+[
+  {
+    "posts": [
+      {
+        "__typename": "Post",
+        "id": "cl58s2cv29lt60bmz6f216eet",
+        "customer": {
+          "__typename": "Customer",
+          "id": "cl58rsmw49vv00blrkbyt9s66",
+          "avatar": "https://user-images.githubusercontent.com/46464433/177430210-5de97812-84dc-4a37-8d2d-f0d9481bf3b0.jpeg",
+          "name": "Eliot Alderson",
+          "role": "Destruidor de conglomerado"
+        },
+        "createdAt": "2022-07-05T23:03:46.328499+00:00",
+        "content": {
+          "__typename": "RichText",
+          "html": "<p>Salve rapaziada, quem ta afim de destruir um conglomerado hoje??? 😏😏😏😏</p><p></p><p><a title=\"github.com/luciano-ferreira\" href=\"github.com/luciano-ferreira\">#mrrobot</a> <a title=\"github.com/luciano-ferreira\" href=\"github.com/luciano-ferreira\">#foryou</a></p>"
+        },
+        "comments": [
+          {
+            "__typename": "Comment",
+            "id": "cl58qhnv28ff80bmzfyr7d347",
+            "likes": 2,
+            "createdAt": "2022-07-05T22:19:41.088105+00:00",
+            "author": {
+              "__typename": "Author",
+              "id": "cl58qoa528peu0dlwjmwe7z1q",
+              "name": "Tyrell Wellick",
+              "role": "CTO F-Corp",
+              "avatar": "https://user-images.githubusercontent.com/46464433/177874170-f22936a5-7bf6-492f-ad31-301024ad60ab.jpeg"
+            },
+            "content": {
+              "__typename": "RichText",
+              "html": "<p>Fala galeraa 👋</p><p>Acabei de subir <br>advinha quem vai virar CTO amanhã?</p><p>😋😋😋😋😋</p><p>🚀</p><p><a title=\"https://fakebook-eight.vercel.app/\" href=\"https://fakebook-eight.vercel.app/\">https://fakebook-eight.vercel.app/</a> <a title=\"github.com/luciano-ferreira\" href=\"github.com/luciano-ferreira\">#conglomerado </a><a title=\"github.com/luciano-ferreira\" href=\"github.com/luciano-ferreira\">#e-corp</a></p>"
+            }
+          },
+          {
+            "__typename": "Comment",
+            "id": "cl58qqox18o7l0bmzdn8lem1g",
+            "likes": -3,
+            "createdAt": "2022-07-05T22:26:42.45337+00:00",
+            "author": {
+              "__typename": "Author",
+              "id": "cl58qu6e48pk60bmzdi71e02c",
+              "name": "Scott Knowles",
+              "role": "CTO - E Corp",
+              "avatar": "https://user-images.githubusercontent.com/46464433/177427645-2750da58-0e90-419e-9a8c-1182138d5d57.jpeg"
+            },
+            "content": {
+              "__typename": "RichText",
+              "html": "<p>HAHA nunca será 💅</p>"
+            }
+          },
+          {
+            "__typename": "Comment",
+            "id": "cl58rzsq094vq0clv2wpauw95",
+            "likes": 6,
+            "createdAt": "2022-07-05T23:01:46.901723+00:00",
+            "author": {
+              "__typename": "Author",
+              "id": "cl58ruqw89wtt0blrm31s1kir",
+              "name": "Phillipe Price",
+              "role": "CEO",
+              "avatar": "https://user-images.githubusercontent.com/46464433/177430492-4bd35501-8054-4594-a6be-91c054bc60f6.jpeg"
+            },
+            "content": {
+              "__typename": "RichText",
+              "html": "<p>Confia !!!  😏😏😏😏</p>"
+            }
+          }
+        ]
+      },
+      {
+        "__typename": "Post",
+        "id": "cl5ahzdx5dxkv0clv9moy01fd",
+        "customer": {
+          "__typename": "Customer",
+          "id": "cl5ahqwzwdtmd0clv32vqx203",
+          "avatar": "https://user-images.githubusercontent.com/46464433/177686619-b473b0f4-7369-4aa3-9686-80e40eddb198.jpeg",
+          "name": "Fernando Vera",
+          "role": "Pesquisador de significados no google"
+        },
+        "createdAt": "2022-07-07T03:57:03.899401+00:00",
+        "content": {
+          "__typename": "RichText",
+          "html": "<p>Opa galera to vendendo conchas do mar 🏖 de 762mm  🐚 e 556mm  🐚</p><p>💥 💥💥💥💥💥💥💥</p><p><a title=\"https://mrrobot.fandom.com/wiki/Fernando_Vera\" href=\"https://mrrobot.fandom.com/wiki/Fernando_Vera\">#conchasdomar</a> </p>"
+        },
+        "comments": [
+          {
+            "__typename": "Comment",
+            "id": "cl5ahyzn0dxev0clvc23pv7iz",
+            "likes": 6,
+            "createdAt": "2022-07-07T03:56:45.38681+00:00",
+            "author": {
+              "__typename": "Author",
+              "id": "cl5ahyrg0e6jz0bmzbypeutdr",
+              "name": "Isaac",
+              "role": "Irmão do fernando",
+              "avatar": "https://user-images.githubusercontent.com/46464433/177687354-4bb99894-9417-4bf9-80a4-344d64db0af6.jpeg"
+            },
+            "content": {
+              "__typename": "RichText",
+              "html": "<p>Vai dar certo!! 😏😏😏😏😏😏😏😏</p><p>Só conchas de qualidade galero.</p>"
+            }
+          },
+          {
+            "__typename": "Comment",
+            "id": "cl5baap1lvkfb0blr2mtfev3r",
+            "likes": 0,
+            "createdAt": "2022-07-07T17:09:40.789958+00:00",
+            "author": {
+              "__typename": "Author",
+              "id": "cl5bjawdx74if0dlwim58f7ac",
+              "name": "White Horse",
+              "role": "Hacker do tempo",
+              "avatar": "https://user-images.githubusercontent.com/46464433/177873425-3a5dc0ed-a22e-4d82-b028-009ab323b46c.jpeg"
+            },
+            "content": {
+              "__typename": "RichText",
+              "html": "<p>Hmm.....</p><p>🚀</p><p></p>"
+            }
+          },
+          {
+            "__typename": "Comment",
+            "id": "cl5barezbuxho0clvc4ngeaqm",
+            "likes": 0,
+            "createdAt": "2022-07-07T17:22:40.912836+00:00",
+            "author": {
+              "__typename": "Author",
+              "id": "cl58qoa528peu0dlwjmwe7z1q",
+              "name": "Tyrell Wellick",
+              "role": "CTO F-Corp",
+              "avatar": "https://user-images.githubusercontent.com/46464433/177874170-f22936a5-7bf6-492f-ad31-301024ad60ab.jpeg"
+            },
+            "content": {
+              "__typename": "RichText",
+              "html": "<p>Fala galeraa 👋</p><p>Acabei de subir <br>advinha quem vai virar CTO amanhã?</p><p>😋😋😋😋😋</p><p>🚀</p><p><a title=\"https://fakebook-eight.vercel.app/\" href=\"https://fakebook-eight.vercel.app/\">https://fakebook-eight.vercel.app/</a> <a title=\"github.com/luciano-ferreira\" href=\"github.com/luciano-ferreira\">#conglomerado </a><a title=\"github.com/luciano-ferreira\" href=\"github.com/luciano-ferreira\">#e-corp</a></p>"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "postId": "cl5ahzdx5dxkv0clv9moy01fd",
+    "authorId": "cl5ahyrg0e6jz0bmzbypeutdr",
+    "content": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "GraphCMS boasts an impressive collection of "
+          },
+          {
+            "href": "https://graphcms.com/docs/api-reference/schema/field-types",
+            "type": "link",
+            "children": [
+              {
+                "text": "Field Types"
+              }
+            ]
+          },
+          {
+            "text": " that you can use when content modelling. These field types range from the core GraphQL scalar types, to custom "
+          },
+          {
+            "href": "https://graphcms.com/docs/api-reference/schema/field-types#asset",
+            "type": "link",
+            "children": [
+              {
+                "text": "Asset"
+              }
+            ]
+          },
+          {
+            "text": ", "
+          },
+          {
+            "href": "https://graphcms.com/docs/api-reference/schema/field-types#location",
+            "type": "link",
+            "children": [
+              {
+                "text": "Location"
+              }
+            ]
+          },
+          {
+            "text": ", "
+          },
+          {
+            "href": "https://graphcms.com/docs/api-reference/schema/field-types#json",
+            "type": "link",
+            "children": [
+              {
+                "text": "JSON"
+              }
+            ]
+          },
+          {
+            "text": ", and, "
+          },
+          {
+            "href": "https://graphcms.com/docs/api-reference/schema/field-types#rich-text",
+            "type": "link",
+            "children": [
+              {
+                "text": "RichText"
+              }
+            ]
+          },
+          {
+            "text": " scalars."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": ""
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "In this post we'll look at the Rich Text field. We'll take a peak at how you can query, and mutate Rich Text using the Content API."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": ""
+          }
+        ]
+      },
+      {
+        "src": "https://media.graphcms.com/N3JOKsXrT9ezCU4Ba6LI",
+        "type": "image",
+        "title": "Screenshot 2021-03-24 at 13.00.14.png",
+        "width": 2408,
+        "handle": "N3JOKsXrT9ezCU4Ba6LI",
+        "height": 1684,
+        "children": [
+          {
+            "text": ""
+          }
+        ],
+        "mimeType": "image/png"
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "postId": "cl5ahzdx5dxkv0clv9moy01fd",
+    "authorId": "cl5ahyrg0e6jz0bmzbypeutdr",
+    "content":{
+      "children":[
+         {
+            "type":"paragraph",
+            "children":[
+               {
+                  "text":"GraphCMS boasts an impressive collection of "
+               },
+               {
+                  "href":"https://graphcms.com/docs/api-reference/schema/field-types",
+                  "type":"link",
+                  "children":[
+                     {
+                        "text":"Field Types"
+                     }
+                  ]
+               },
+               {
+                  "text":" that you can use when content modelling. These field types range from the core GraphQL scalar types, to custom "
+               },
+               {
+                  "href":"https://graphcms.com/docs/api-reference/schema/field-types#asset",
+                  "type":"link",
+                  "children":[
+                     {
+                        "text":"Asset"
+                     }
+                  ]
+               },
+               {
+                  "text":", "
+               },
+               {
+                  "href":"https://graphcms.com/docs/api-reference/schema/field-types#location",
+                  "type":"link",
+                  "children":[
+                     {
+                        "text":"Location"
+                     }
+                  ]
+               },
+               {
+                  "text":", "
+               },
+               {
+                  "href":"https://graphcms.com/docs/api-reference/schema/field-types#json",
+                  "type":"link",
+                  "children":[
+                     {
+                        "text":"JSON"
+                     }
+                  ]
+               },
+               {
+                  "text":", and, "
+               },
+               {
+                  "href":"https://graphcms.com/docs/api-reference/schema/field-types#rich-text",
+                  "type":"link",
+                  "children":[
+                     {
+                        "text":"RichText"
+                     }
+                  ]
+               },
+               {
+                  "text":" scalars."
+               }
+            ]
+         },
+         {
+            "type":"paragraph",
+            "children":[
+               {
+                  "text":""
+               }
+            ]
+         },
+         {
+            "type":"paragraph",
+            "children":[
+               {
+                  "text":"In this post we'll look at the Rich Text field. We'll take a peak at how you can query, and mutate Rich Text using the Content API."
+               }
+            ]
+         },
+         {
+            "type":"paragraph",
+            "children":[
+               {
+                  "text":""
+               }
+            ]
+         },
+         {
+            "src":"https://media.graphcms.com/N3JOKsXrT9ezCU4Ba6LI",
+            "type":"image",
+            "title":"Screenshot 2021-03-24 at 13.00.14.png",
+            "width":2408,
+            "handle":"N3JOKsXrT9ezCU4Ba6LI",
+            "height":1684,
+            "children":[
+               {
+                  "text":""
+               }
+            ],
+            "mimeType":"image/png"
+         },
+         {
+            "type":"paragraph",
+            "children":[
+               {
+                  "text":""
+               }
+            ]
+         }
+      ]
+   }
+  }
+]

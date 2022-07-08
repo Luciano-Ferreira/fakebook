@@ -39,6 +39,10 @@
   @apply block text-[0.75rem] leading-[1.6] text-gray-400
 }
 
+.footerComment {
+  @apply mt-2
+}
+
 .footerComment button {
   @apply bg-transparent border-0 text-gray-400 cursor-pointer flex items-center hover:text-green-300 rounded-sm
 }
