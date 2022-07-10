@@ -5,8 +5,8 @@ import { IComment } from './@types';
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
-export function Comment({ author, createdAt, content, likes  }: IComment): JSX.Element {
-  if (!author || !createdAt || !content) {
+export function Comment({ id, author, createdAt, content, likes  }: IComment): JSX.Element {
+  if (!author || !createdAt || !content || !id ) {
     return (
       <div className='flex-1'>
         <h1>Loading...</h1>

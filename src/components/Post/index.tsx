@@ -8,10 +8,9 @@ import styles from './styles.module.scss';
 import { IPost } from './@types';
 
 
-export function Post({ customer, createdAt, comments, content }: IPost): JSX.Element {
-  
+export function Post({ id, customer, createdAt, comments, content }: IPost): JSX.Element {
 
-  if (!comments || !customer || !createdAt || !content) {
+  if (!comments || !customer || !createdAt || !content || !id) {
     return (
       <div className='flex-1'>
         <h1>Loading...</h1>
@@ -66,6 +65,7 @@ export function Post({ customer, createdAt, comments, content }: IPost): JSX.Ele
           return (
             <Comment
               key={comment.id}
+              id={comment.id}
               author={comment.author}
               content={comment.content.html}
               createdAt={comment.createdAt}

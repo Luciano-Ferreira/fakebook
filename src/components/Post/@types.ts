@@ -23,6 +23,7 @@ interface Comment {
 }
 
 export interface IPost {
+  id?: string;
   customer?: Customer | null;
   createdAt?: Date;
   content?: string;

@@ -1,0 +1,1 @@
+[more info about slate components](https://github.dev/ianstormtaylor/slate/blob/main/site/examples/richtext.tsx)

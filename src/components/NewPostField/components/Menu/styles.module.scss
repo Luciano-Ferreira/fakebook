@@ -1,0 +1,7 @@
+.toolbarMenu > * {
+  @apply inline-block
+}
+
+.toolbarMenu > * + * {
+  @apply ml-[15px]
+}

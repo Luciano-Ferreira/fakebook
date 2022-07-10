@@ -264,123 +264,212 @@
   {
     "postId": "cl5ahzdx5dxkv0clv9moy01fd",
     "authorId": "cl5ahyrg0e6jz0bmzbypeutdr",
-    "content":{
-      "children":[
-         {
-            "type":"paragraph",
-            "children":[
-               {
-                  "text":"GraphCMS boasts an impressive collection of "
-               },
-               {
-                  "href":"https://graphcms.com/docs/api-reference/schema/field-types",
-                  "type":"link",
-                  "children":[
-                     {
-                        "text":"Field Types"
-                     }
-                  ]
-               },
-               {
-                  "text":" that you can use when content modelling. These field types range from the core GraphQL scalar types, to custom "
-               },
-               {
-                  "href":"https://graphcms.com/docs/api-reference/schema/field-types#asset",
-                  "type":"link",
-                  "children":[
-                     {
-                        "text":"Asset"
-                     }
-                  ]
-               },
-               {
-                  "text":", "
-               },
-               {
-                  "href":"https://graphcms.com/docs/api-reference/schema/field-types#location",
-                  "type":"link",
-                  "children":[
-                     {
-                        "text":"Location"
-                     }
-                  ]
-               },
-               {
-                  "text":", "
-               },
-               {
-                  "href":"https://graphcms.com/docs/api-reference/schema/field-types#json",
-                  "type":"link",
-                  "children":[
-                     {
-                        "text":"JSON"
-                     }
-                  ]
-               },
-               {
-                  "text":", and, "
-               },
-               {
-                  "href":"https://graphcms.com/docs/api-reference/schema/field-types#rich-text",
-                  "type":"link",
-                  "children":[
-                     {
-                        "text":"RichText"
-                     }
-                  ]
-               },
-               {
-                  "text":" scalars."
-               }
-            ]
-         },
-         {
-            "type":"paragraph",
-            "children":[
-               {
-                  "text":""
-               }
-            ]
-         },
-         {
-            "type":"paragraph",
-            "children":[
-               {
-                  "text":"In this post we'll look at the Rich Text field. We'll take a peak at how you can query, and mutate Rich Text using the Content API."
-               }
-            ]
-         },
-         {
-            "type":"paragraph",
-            "children":[
-               {
-                  "text":""
-               }
-            ]
-         },
-         {
-            "src":"https://media.graphcms.com/N3JOKsXrT9ezCU4Ba6LI",
-            "type":"image",
-            "title":"Screenshot 2021-03-24 at 13.00.14.png",
-            "width":2408,
-            "handle":"N3JOKsXrT9ezCU4Ba6LI",
-            "height":1684,
-            "children":[
-               {
-                  "text":""
-               }
-            ],
-            "mimeType":"image/png"
-         },
-         {
-            "type":"paragraph",
-            "children":[
-               {
-                  "text":""
-               }
-            ]
-         }
+    "content": {
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "GraphCMS boasts an impressive collection of "
+            },
+            {
+              "href": "https://graphcms.com/docs/api-reference/schema/field-types",
+              "type": "link",
+              "children": [
+                {
+                  "text": "Field Types"
+                }
+              ]
+            },
+            {
+              "text": " that you can use when content modelling. These field types range from the core GraphQL scalar types, to custom "
+            },
+            {
+              "href": "https://graphcms.com/docs/api-reference/schema/field-types#asset",
+              "type": "link",
+              "children": [
+                {
+                  "text": "Asset"
+                }
+              ]
+            },
+            {
+              "text": ", "
+            },
+            {
+              "href": "https://graphcms.com/docs/api-reference/schema/field-types#location",
+              "type": "link",
+              "children": [
+                {
+                  "text": "Location"
+                }
+              ]
+            },
+            {
+              "text": ", "
+            },
+            {
+              "href": "https://graphcms.com/docs/api-reference/schema/field-types#json",
+              "type": "link",
+              "children": [
+                {
+                  "text": "JSON"
+                }
+              ]
+            },
+            {
+              "text": ", and, "
+            },
+            {
+              "href": "https://graphcms.com/docs/api-reference/schema/field-types#rich-text",
+              "type": "link",
+              "children": [
+                {
+                  "text": "RichText"
+                }
+              ]
+            },
+            {
+              "text": " scalars."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": ""
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "In this post we'll look at the Rich Text field. We'll take a peak at how you can query, and mutate Rich Text using the Content API."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": ""
+            }
+          ]
+        },
+        {
+          "src": "https://media.graphcms.com/N3JOKsXrT9ezCU4Ba6LI",
+          "type": "image",
+          "title": "Screenshot 2021-03-24 at 13.00.14.png",
+          "width": 2408,
+          "handle": "N3JOKsXrT9ezCU4Ba6LI",
+          "height": 1684,
+          "children": [
+            {
+              "text": ""
+            }
+          ],
+          "mimeType": "image/png"
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": ""
+            }
+          ]
+        }
       ]
-   }
+    }
+  },
+  {
+    "postId": "cl5ahzdx5dxkv0clv9moy01fd",
+    "authorId": "cl5ahyrg0e6jz0bmzbypeutdr",
+    "content": [
+      {
+        "raw": {
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "comentario 👋"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "Acabei de subir \nadvinha quem vai virar CTO amanhã?"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "😋😋😋😋😋"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "🚀"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                },
+                {
+                  "href": "https://fakebook-eight.vercel.app/",
+                  "type": "link",
+                  "children": [
+                    {
+                      "text": "https://fakebook-eight.vercel.app/"
+                    }
+                  ]
+                },
+                {
+                  "text": " "
+                },
+                {
+                  "href": "github.com/luciano-ferreira",
+                  "type": "link",
+                  "children": [
+                    {
+                      "text": "#conglomerado "
+                    }
+                  ]
+                },
+                {
+                  "text": ""
+                },
+                {
+                  "href": "github.com/luciano-ferreira",
+                  "type": "link",
+                  "children": [
+                    {
+                      "text": "#e-corp"
+                    }
+                  ]
+                },
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
   }
 ]
+

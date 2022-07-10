@@ -10,12 +10,17 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
+    "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
     "graphql": "^16.5.0",
+    "is-hotkey": "^0.2.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "sass": "^1.53.0"
+    "sass": "^1.53.0",
+    "slate": "^0.81.1",
+    "slate-history": "^0.66.0",
+    "slate-react": "^0.81.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.7.0",

@@ -1,4 +1,5 @@
 import { Header } from '../../components/Header';
+import { NewPostField } from '../../components/NewPostField';
 import { Post } from '../../components/Post';
 import { Sidebar } from '../../components/Sidebar';
 import { useGetPostsWithCommentsQuery } from '../../graphql/generated';
@@ -28,10 +29,14 @@ export function Feed(): JSX.Element {
           avatar='https://user-images.githubusercontent.com/46464433/177191269-5cabb63b-09db-4ed0-9192-bef56c8a7fe7.jpeg'
         />
         <main>
+
+          <NewPostField />
+          
           {data?.posts.map(({ id, customer, createdAt, content, comments }) => {
             return (
               <Post
                 key={id}
+                id={id}
                 customer={customer}
                 createdAt={createdAt}
                 content={content.html}
