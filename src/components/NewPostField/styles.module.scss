@@ -1,3 +1,15 @@
-.container {
+.postForm {
   @apply flex flex-col bg-gray-800 rounded-lg lg:p-10 md:p-8 p-3 mb-8
+}
+
+.postForm > footer {
+  @apply invisible max-h-0 
+}
+
+.postForm:focus-within footer {
+  @apply visible max-h-[none]
+}
+
+.postForm footer > button[type=submit] {
+  @apply py-3 px-3 mt-4 rounded-lg border-0 bg-green-500 text-white-100 font-bold cursor-pointer hover:bg-green-300 transition
 }

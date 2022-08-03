@@ -1,14 +1,14 @@
 import isHotkey from 'is-hotkey';
 import { Code, LinkSimpleHorizontal, TextBolder, Image, Smiley } from 'phosphor-react';
 import { useCallback, useMemo, useState } from 'react';
-import { 
+import {
   BaseEditor,
-  createEditor, 
-  Descendant, 
-  Editor, 
-  Transforms, 
+  createEditor,
+  Descendant,
+  Editor,
+  Transforms,
   Element as SlateElement,
-  Node 
+  Node
 } from 'slate';
 
 import { withHistory } from 'slate-history';
@@ -42,14 +42,14 @@ const HOTKEYS = {
 
 
 export const NewPostField = () => {
-  const [value, setValue]= useState<Descendant[]>([{ type: 'paragraph', children: [{ text: '' }] }]);
+  const [value, setValue] = useState<Descendant[]>([{ type: 'paragraph', children: [{ text: '' }] }]);
 
   const renderElement = useCallback((props: any) => <Element {...props} />, []);
   const renderLeaf = useCallback((props: any) => <Leaf {...props} />, []);
   const editor = useMemo(() => withHistory(withReact(createEditor())), []);
 
   return (
-    <div className={styles.container}>
+    <form className={styles.postForm}>
       <Slate
         editor={editor}
         value={value}
@@ -70,7 +70,6 @@ export const NewPostField = () => {
           renderElement={renderElement}
           renderLeaf={renderLeaf}
           spellCheck
-          autoFocus
           onKeyDown={(event: any) => {
             for (const hotkey in HOTKEYS) {
               if (isHotkey(hotkey, event as any)) {
@@ -85,12 +84,17 @@ export const NewPostField = () => {
 
         />
       </Slate>
-      <button
-        onClick={() => console.log(JSON.stringify(value))}
-      >
-        Postar
-      </button>
-    </div>
+
+      <footer>
+        <button
+          type='submit'
+          onClick={() => console.log(JSON.stringify(value))}
+        >
+          Postar
+        </button>
+      </footer>
+
+    </form>
   )
 }
 
