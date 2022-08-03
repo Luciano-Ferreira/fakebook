@@ -2,6 +2,10 @@
 export const Element = ({ attributes, children, element }: any) => {
   const style = { textAlign: element.align }
   switch (element.type) {
+    case 'link':
+      return (
+        <a style={style} {...attributes}>{children}</a>
+      )
     case 'block-quote':
       return (
         <blockquote style={style} {...attributes}>

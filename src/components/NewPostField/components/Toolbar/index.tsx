@@ -13,7 +13,7 @@ export const Toolbar = React.forwardRef(
       ref={ref}
       className={classNames(
         className,
-        'relative p-[1px_18px_17px] m-[0_-20px] border-b-2 border-solid border-green-500 mb-[20px]',
+        'flex justify-between lg:p-[1px_18px_40px] p-[3px_18px_20px]  lg:m-[0_-20px] border-b-2 border-solid border-green-500 mb-[20px]',
       )}
     />
   )

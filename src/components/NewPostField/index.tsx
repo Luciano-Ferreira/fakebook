@@ -13,10 +13,8 @@ import {
 
 import { withHistory } from 'slate-history';
 
-import { withReact, Slate, Editable, DefaultElement, ReactEditor, useSlate, } from 'slate-react';
+import { withReact, Slate, Editable, ReactEditor } from 'slate-react';
 import { CustomElement, CustomText } from './types';
-import { Button } from './components/Button';
-import { Icon } from './components/Icon';
 
 import { Leaf } from './Leaf';
 import { Toolbar } from './components/Toolbar';
@@ -25,6 +23,7 @@ import { Element } from './Element';
 
 
 import styles from './styles.module.scss';
+import { MarkButton, toggleMark } from './MarkButton';
 
 declare module 'slate' {
   interface CustomTypes {
@@ -54,6 +53,11 @@ export const NewPostField = () => {
       <Slate
         editor={editor}
         value={value}
+        onChange={(val) => {
+          if (val !== value) {
+            setValue(val);
+          }
+        }}
       >
         <Toolbar>
           <MarkButton format='bold' icon={<TextBolder />} />
@@ -81,37 +85,12 @@ export const NewPostField = () => {
 
         />
       </Slate>
+      <button
+        onClick={() => console.log(JSON.stringify(value))}
+      >
+        Postar
+      </button>
     </div>
   )
 }
 
-const toggleMark = (editor: BaseEditor & ReactEditor, format: string) => {
-  const isActive = isMarkActive(editor, format)
-
-  if (isActive) {
-    Editor.removeMark(editor, format)
-  } else {
-    Editor.addMark(editor, format, true)
-  }
-}
-
-const MarkButton = ({ format, icon }: { format: string, icon: any }) => {
-  const editor = useSlate()
-  return (
-    <Button
-      active={isMarkActive(editor, format)}
-      onMouseDown={(event: { preventDefault: () => void; }) => {
-        event.preventDefault()
-        toggleMark(editor, format)
-      }}
-    >
-      <Icon>{icon}</Icon>
-    </Button>
-  )
-}
-
-const isMarkActive = (editor: BaseEditor & ReactEditor, format: string) => {
-  const marks = Editor.marks(editor);
-
-  return marks ? marks[format as keyof typeof marks] === true : false
-}

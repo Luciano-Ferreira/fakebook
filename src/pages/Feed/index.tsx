@@ -1,4 +1,5 @@
 import { Header } from '../../components/Header';
+import { Loading } from '../../components/Loading';
 import { NewPostField } from '../../components/NewPostField';
 import { Post } from '../../components/Post';
 import { Sidebar } from '../../components/Sidebar';
@@ -7,13 +8,11 @@ import { useGetPostsWithCommentsQuery } from '../../graphql/generated';
 export function Feed(): JSX.Element {
 
   const { data, loading, error } = useGetPostsWithCommentsQuery();
-  if (loading) return <p>loading...</p>
+  if (loading) return <Loading />
   if (error) return <p>error...</p>
   if (!data || !data.posts) {
     return (
-      <div className='flex-1'>
-        <h1>Loading...</h1>
-      </div>
+      <Loading />
     )
   }
 

@@ -4,13 +4,12 @@ import styles from './styles.module.scss';
 import { IComment } from './@types';
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
+import { Loading } from '../Loading';
 
 export function Comment({ id, author, createdAt, content, likes  }: IComment): JSX.Element {
   if (!author || !createdAt || !content || !id ) {
     return (
-      <div className='flex-1'>
-        <h1>Loading...</h1>
-      </div>
+      <Loading />
     )
   }
   const publishedDateCommentFormatted = format(new Date(createdAt), "d' de 'LLLL' de 'Y' às 'HH':'mm", {

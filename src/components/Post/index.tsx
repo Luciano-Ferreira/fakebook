@@ -6,15 +6,14 @@ import ptBR from 'date-fns/locale/pt-BR';
 import styles from './styles.module.scss';
 
 import { IPost } from './@types';
+import { Loading } from '../Loading';
 
 
 export function Post({ id, customer, createdAt, comments, content }: IPost): JSX.Element {
 
   if (!comments || !customer || !createdAt || !content || !id) {
     return (
-      <div className='flex-1'>
-        <h1>Loading...</h1>
-      </div>
+      <Loading />
     )
   }
 
