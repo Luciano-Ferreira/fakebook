@@ -14,7 +14,7 @@ import {
 import { withHistory } from 'slate-history';
 
 import { withReact, Slate, Editable, ReactEditor } from 'slate-react';
-import { CustomElement, CustomText } from './types';
+import { CustomEditor, CustomElement, LinkElement, ImageElement } from './custom-types';
 
 import { Leaf } from './Leaf';
 import { Toolbar } from './components/Toolbar';
@@ -24,14 +24,6 @@ import { Element } from './Element';
 
 import styles from './styles.module.scss';
 import { MarkButton, toggleMark } from './MarkButton';
-
-declare module 'slate' {
-  interface CustomTypes {
-    Editor: BaseEditor & ReactEditor;
-    Element: CustomElement;
-    Text: CustomText;
-  }
-}
 
 // types and hotkey shortcuts
 const htk = 'mod+b' as string;
