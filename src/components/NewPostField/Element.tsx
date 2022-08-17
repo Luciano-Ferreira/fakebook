@@ -1,51 +1,62 @@
+import { Image } from './components/InsertImageButton/Image';
 
-export const Element = ({ attributes, children, element }: any) => {
-  const style = { textAlign: element.align }
-  switch (element.type) {
+interface Props {
+  attributes: any;
+  children: any;
+  element: any;
+}
+
+export const Element = (props: Props) => {
+  const style = { textAlign: props.element.align }
+  switch (props.element.type) {
     case 'link':
       return (
-        <a style={style} {...attributes}>{children}</a>
+        <a style={style} {...props.attributes}>{props.children}</a>
       )
     case 'block-quote':
       return (
-        <blockquote style={style} {...attributes}>
-          {children}
+        <blockquote style={style} {...props.attributes}>
+          {props.children}
         </blockquote>
       )
     case 'bulleted-list':
       return (
-        <ul style={style} {...attributes}>
-          {children}
+        <ul style={style} {...props.attributes}>
+          {props.children}
         </ul>
       )
     case 'heading-one':
       return (
-        <h1 style={style} {...attributes}>
-          {children}
+        <h1 style={style} {...props.attributes}>
+          {props.children}
         </h1>
       )
     case 'heading-two':
       return (
-        <h2 style={style} {...attributes}>
-          {children}
+        <h2 style={style} {...props.attributes}>
+          {props.children}
         </h2>
       )
     case 'list-item':
       return (
-        <li style={style} {...attributes}>
-          {children}
+        <li style={style} {...props.attributes}>
+          {props.children}
         </li>
       )
     case 'numbered-list':
       return (
-        <ol style={style} {...attributes}>
-          {children}
+        <ol style={style} {...props.attributes}>
+          {props.children}
         </ol>
+      )
+    case 'image':
+      return (
+        <Image {...props}/>
       )
     default:
       return (
-        <p style={style} {...attributes}>
-          {children}
+        <p style={style} {...props.attributes}>
+          {props.children}
         </p>
       )
   }

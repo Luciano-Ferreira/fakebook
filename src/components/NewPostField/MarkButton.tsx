@@ -2,8 +2,9 @@ import { BaseEditor, Editor } from 'slate';
 import { ReactEditor, useSlate } from 'slate-react';
 import { Button } from './components/Button';
 import { Icon } from './components/Icon';
+import { CustomEditor } from './custom-types';
 
-export const toggleMark = (editor: BaseEditor & ReactEditor, format: string) => {
+export const toggleMark = (editor: BaseEditor & ReactEditor & CustomEditor, format: string) => {
   const isActive = isMarkActive(editor, format)
 
   if (isActive) {
@@ -13,7 +14,7 @@ export const toggleMark = (editor: BaseEditor & ReactEditor, format: string) => 
   }
 }
 
-const isMarkActive = (editor: BaseEditor & ReactEditor, format: string) => {
+const isMarkActive = (editor: BaseEditor & ReactEditor & CustomEditor, format: string) => {
   const marks = Editor.marks(editor);
 
   return marks ? marks[format as keyof typeof marks] === true : false

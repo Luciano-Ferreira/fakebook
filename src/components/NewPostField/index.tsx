@@ -1,29 +1,24 @@
 import isHotkey from 'is-hotkey';
 import { Code, LinkSimpleHorizontal, TextBolder, Image, Smiley } from 'phosphor-react';
-import { useCallback, useMemo, useState } from 'react';
+import { FormEvent, useCallback, useMemo, useState } from 'react';
 import {
-  BaseEditor,
   createEditor,
-  Descendant,
-  Editor,
-  Transforms,
-  Element as SlateElement,
-  Node
+  Descendant
 } from 'slate';
 
 import { withHistory } from 'slate-history';
 
-import { withReact, Slate, Editable, ReactEditor } from 'slate-react';
-import { CustomEditor, CustomElement, LinkElement, ImageElement } from './custom-types';
+import { withReact, Slate, Editable, RenderElementProps, RenderLeafProps } from 'slate-react';
 
 import { Leaf } from './Leaf';
 import { Toolbar } from './components/Toolbar';
+import InsertImageButton from './components/InsertImageButton';
 
 import { Element } from './Element';
 
 
-import styles from './styles.module.scss';
 import { MarkButton, toggleMark } from './MarkButton';
+import styles from './styles.module.scss';
 
 // types and hotkey shortcuts
 const htk = 'mod+b' as string;
@@ -36,12 +31,16 @@ const HOTKEYS = {
 export const NewPostField = () => {
   const [value, setValue] = useState<Descendant[]>([{ type: 'paragraph', children: [{ text: '' }] }]);
 
-  const renderElement = useCallback((props: any) => <Element {...props} />, []);
-  const renderLeaf = useCallback((props: any) => <Leaf {...props} />, []);
+  const renderElement = useCallback((props: RenderElementProps) => <Element {...props} />, []);
+  const renderLeaf = useCallback((props: RenderLeafProps) => <Leaf {...props} />, []);
   const editor = useMemo(() => withHistory(withReact(createEditor())), []);
 
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault()
+  }
+
   return (
-    <form className={styles.postForm}>
+    <form className={styles.postForm} onSubmit={handleSubmit}>
       <Slate
         editor={editor}
         value={value}
@@ -55,7 +54,7 @@ export const NewPostField = () => {
           <MarkButton format='bold' icon={<TextBolder />} />
           <MarkButton format='link' icon={<LinkSimpleHorizontal />} />
           <MarkButton format='code' icon={<Code />} />
-          <MarkButton format='image' icon={<Image />} />
+          <InsertImageButton format='image' icon={<Image />} />
           <MarkButton format='emoji' icon={<Smiley />} />
         </Toolbar>
         <Editable
@@ -81,6 +80,7 @@ export const NewPostField = () => {
         <button
           type='submit'
           onClick={() => console.log(JSON.stringify(value))}
+          
         >
           Postar
         </button>
