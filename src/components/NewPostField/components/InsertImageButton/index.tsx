@@ -31,7 +31,7 @@ const InsertImageButton = ({ icon }: Props) => {
 
 const insertImage = (editor: any, url: string) => {
   const text = { text: '' }
-  console.log('EDITOR: ' + JSON.stringify(editor, null, 2))
+  
   const image: ImageElement = { type: 'image', url, children: [text] }
   Transforms.insertNodes(editor, image)
 }
@@ -41,7 +41,7 @@ const isImageUrl = (url: string) => {
   if (!url) return false
   if (!isUrl(url)) return false
   const ext = new URL(url).pathname.split('.').pop()
-  console.log(ext)
+
   return imageExtensions.includes(ext!)
 }
 
