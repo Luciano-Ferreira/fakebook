@@ -4,7 +4,7 @@ export const Leaf = ({ attributes, children, leaf }: any) => {
   }
 
   if (leaf.code) {
-    children = <code>{children}</code>
+    children = <code className='font-mono bg-gray-600 rounded px-2 text-red-600'>{children}</code>
   }
 
   if (leaf.italic) {
@@ -15,5 +15,16 @@ export const Leaf = ({ attributes, children, leaf }: any) => {
     children = <u>{children}</u>
   }
 
-  return <span {...attributes}>{children}</span>
+  return (
+    <span
+      // className={
+      //   leaf.text === ''
+      //     ? 'pl-[0.1px]'
+      //     : null
+      // }
+      {...attributes}
+    >
+      {children}
+    </span>
+  )
 }

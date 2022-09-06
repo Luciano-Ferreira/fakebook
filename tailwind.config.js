@@ -25,7 +25,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: 'Roboto, sans-serif'
+        sans: 'Roboto, sans-serif',
+        mono: 'IBM Plex Mono'
       }
     }
   },

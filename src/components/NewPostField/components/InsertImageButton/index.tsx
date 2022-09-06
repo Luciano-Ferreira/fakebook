@@ -14,7 +14,7 @@ const InsertImageButton = ({ icon }: Props) => {
   const editor = useSlateStatic()
   return (
     <Button
-      onMouseDown={(event: { preventDefault: () => void }) => {
+      onMouseDown={(event: any) => {
         event.preventDefault()
         const url = window.prompt('Enter the URL of the image:')
         if (url && !isImageUrl(url)) {

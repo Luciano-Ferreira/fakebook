@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React, { PropsWithChildren, Ref, useRef } from 'react'
+import React, { PropsWithChildren, Ref } from 'react'
 import { BaseProps } from '..'
 
 export const EditorValues = React.forwardRef(({ className, value, ...props }: PropsWithChildren<{value: any} & BaseProps>, ref: Ref<any>) => {

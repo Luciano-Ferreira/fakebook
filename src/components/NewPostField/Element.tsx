@@ -1,4 +1,5 @@
 import { Image } from './components/InsertImageButton/Image';
+import { Link } from './components/InsertLinkButton/Link';
 
 interface Props {
   attributes: any;
@@ -11,7 +12,7 @@ export const Element = (props: Props) => {
   switch (props.element.type) {
     case 'link':
       return (
-        <a style={style} {...props.attributes}>{props.children}</a>
+        <Link {...props} />
       )
     case 'block-quote':
       return (

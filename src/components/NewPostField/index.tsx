@@ -19,6 +19,8 @@ import { Element } from './Element';
 
 import { MarkButton, toggleMark } from './MarkButton';
 import styles from './styles.module.scss';
+import InsertLinkButton from './components/InsertLinkButton';
+import { withInlines } from './components/InsertLinkButton';
 
 // types and hotkey shortcuts
 const htk = 'mod+b' as string;
@@ -33,7 +35,7 @@ export const NewPostField = () => {
 
   const renderElement = useCallback((props: RenderElementProps) => <Element {...props} />, []);
   const renderLeaf = useCallback((props: RenderLeafProps) => <Leaf {...props} />, []);
-  const editor = useMemo(() => withHistory(withReact(createEditor())), []);
+  const editor = useMemo(() => withInlines(withHistory(withReact(createEditor()))), []);
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault()
@@ -52,7 +54,7 @@ export const NewPostField = () => {
       >
         <Toolbar>
           <MarkButton format='bold' icon={<TextBolder />} />
-          <MarkButton format='link' icon={<LinkSimpleHorizontal />} />
+          <InsertLinkButton  format='link' icon={<LinkSimpleHorizontal />} />
           <MarkButton format='code' icon={<Code />} />
           <InsertImageButton format='image' icon={<Image />} />
           <MarkButton format='emoji' icon={<Smiley />} />

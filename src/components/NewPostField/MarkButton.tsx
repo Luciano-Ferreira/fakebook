@@ -1,4 +1,4 @@
-import { BaseEditor, Editor } from 'slate';
+import { BaseEditor, Editor, Transforms } from 'slate';
 import { ReactEditor, useSlate } from 'slate-react';
 import { Button } from './components/Button';
 import { Icon } from './components/Icon';
@@ -21,8 +21,8 @@ const isMarkActive = (editor: BaseEditor & ReactEditor & CustomEditor, format: s
 }
 
 
-export const MarkButton = ({ format, icon }: { format: string, icon: any }) => {
-  const editor = useSlate()
+export const MarkButton = ({ format, icon }: { format: string, icon?: any }) => {
+  const editor = useSlate();
   return (
     <Button
       active={isMarkActive(editor, format)}
