@@ -1,6 +1,13 @@
 import isHotkey from 'is-hotkey';
+import Picker from 'emoji-picker-react';
 import { Code, LinkSimpleHorizontal, TextBolder, Image, Smiley } from 'phosphor-react';
-import { FormEvent, useCallback, useMemo, useState } from 'react';
+import {
+  FormEvent,
+  useCallback,
+  useMemo,
+  useState
+} from 'react';
+
 import {
   createEditor,
   Descendant
@@ -8,7 +15,13 @@ import {
 
 import { withHistory } from 'slate-history';
 
-import { withReact, Slate, Editable, RenderElementProps, RenderLeafProps } from 'slate-react';
+import {
+  withReact,
+  Slate,
+  Editable,
+  RenderElementProps,
+  RenderLeafProps
+} from 'slate-react';
 
 import { Leaf } from './Leaf';
 import { Toolbar } from './components/Toolbar';
@@ -16,11 +29,12 @@ import InsertImageButton from './components/InsertImageButton';
 
 import { Element } from './Element';
 
-
-import { MarkButton, toggleMark } from './MarkButton';
-import styles from './styles.module.scss';
+import { MarkButton, toggleMark } from './components/MarkButton';
 import InsertLinkButton from './components/InsertLinkButton';
 import { withInlines } from './components/InsertLinkButton';
+import { EmojiPickerButton } from './components/EmojiPickerButton';
+
+import styles from './styles.module.scss';
 
 // types and hotkey shortcuts
 const htk = 'mod+b' as string;
@@ -32,11 +46,11 @@ const HOTKEYS = {
 
 export const NewPostField = () => {
   const [value, setValue] = useState<Descendant[]>([{ type: 'paragraph', children: [{ text: '' }] }]);
-
   const renderElement = useCallback((props: RenderElementProps) => <Element {...props} />, []);
   const renderLeaf = useCallback((props: RenderLeafProps) => <Leaf {...props} />, []);
   const editor = useMemo(() => withInlines(withHistory(withReact(createEditor()))), []);
 
+  
   function handleSubmit(event: FormEvent) {
     event.preventDefault()
   }
@@ -54,10 +68,10 @@ export const NewPostField = () => {
       >
         <Toolbar>
           <MarkButton format='bold' icon={<TextBolder />} />
-          <InsertLinkButton  format='link' icon={<LinkSimpleHorizontal />} />
+          <InsertLinkButton format='link' icon={<LinkSimpleHorizontal />} />
           <MarkButton format='code' icon={<Code />} />
           <InsertImageButton format='image' icon={<Image />} />
-          <MarkButton format='emoji' icon={<Smiley />} />
+          <EmojiPickerButton format='emoji' icon={<Smiley />} />
         </Toolbar>
         <Editable
           renderElement={renderElement}
@@ -82,7 +96,7 @@ export const NewPostField = () => {
         <button
           type='submit'
           onClick={() => console.log(JSON.stringify(value))}
-          
+
         >
           Postar
         </button>

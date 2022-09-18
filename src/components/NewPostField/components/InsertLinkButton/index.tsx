@@ -7,7 +7,6 @@ import { Button } from '../Button';
 import { Icon } from '../Icon';
 import isUrl from 'is-url';
 
-
 interface Props {
   format: string;
   icon: any;

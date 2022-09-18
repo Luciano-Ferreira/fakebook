@@ -1,13 +1,12 @@
-import { Avatar } from '../Avatar';
-import { Comment } from '../Comment';
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
-import styles from './styles.module.scss';
-
-import { IPost } from './@types';
+import { Avatar } from '../Avatar';
+import { Comment } from '../Comment';
 import { Loading } from '../Loading';
 
+import { IPost } from './@types';
+import styles from './styles.module.scss';
 
 export function Post({ id, customer, createdAt, comments, content }: IPost): JSX.Element {
 

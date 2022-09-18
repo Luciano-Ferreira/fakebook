@@ -1,8 +1,8 @@
-import { BaseEditor, Editor, Transforms } from 'slate';
+import { BaseEditor, Editor } from 'slate';
 import { ReactEditor, useSlate } from 'slate-react';
-import { Button } from './components/Button';
-import { Icon } from './components/Icon';
-import { CustomEditor } from './custom-types';
+import { Button } from '../Button';
+import { Icon } from '../Icon';
+import { CustomEditor } from '../../custom-types';
 
 export const toggleMark = (editor: BaseEditor & ReactEditor & CustomEditor, format: string) => {
   const isActive = isMarkActive(editor, format)

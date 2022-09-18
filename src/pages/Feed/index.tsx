@@ -6,7 +6,6 @@ import { Sidebar } from '../../components/Sidebar';
 import { useGetPostsWithCommentsQuery } from '../../graphql/generated';
 
 export function Feed(): JSX.Element {
-
   const { data, loading, error } = useGetPostsWithCommentsQuery();
   if (loading) return <Loading />
   if (error) return <p>error...</p>

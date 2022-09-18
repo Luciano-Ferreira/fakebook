@@ -1,6 +1,6 @@
 import { Transforms } from 'slate'
 import { useSlateStatic } from 'slate-react'
-import { ImageElement } from '../../custom-types'
+import { CustomEditor, ImageElement } from '../../custom-types'
 import { Button } from '../Button'
 import isUrl from 'is-url'
 import imageExtensions from 'image-extensions'
@@ -14,7 +14,7 @@ const InsertImageButton = ({ icon }: Props) => {
   const editor = useSlateStatic()
   return (
     <Button
-      onMouseDown={(event: any) => {
+      onMouseDown={(event: Event) => {
         event.preventDefault()
         const url = window.prompt('Enter the URL of the image:')
         if (url && !isImageUrl(url)) {
@@ -29,7 +29,7 @@ const InsertImageButton = ({ icon }: Props) => {
   )
 }
 
-const insertImage = (editor: any, url: string) => {
+const insertImage = (editor: CustomEditor, url: string) => {
   const text = { text: '' }
   
   const image: ImageElement = { type: 'image', url, children: [text] }

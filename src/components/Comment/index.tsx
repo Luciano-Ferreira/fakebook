@@ -1,10 +1,14 @@
 import { ThumbsUp, Trash } from 'phosphor-react';
-import { Avatar } from '../Avatar';
-import styles from './styles.module.scss';
-import { IComment } from './@types';
 import { format, formatDistanceToNow } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR';
+
+import { Avatar } from '../Avatar';
 import { Loading } from '../Loading';
+
+import ptBR from 'date-fns/locale/pt-BR';
+
+import { IComment } from './@types';
+
+import styles from './styles.module.scss';
 
 export function Comment({ id, author, createdAt, content, likes  }: IComment): JSX.Element {
   if (!author || !createdAt || !content || !id ) {
