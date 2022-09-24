@@ -1,5 +1,6 @@
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
+import { useState } from 'react';
 
 import { Avatar } from '../Avatar';
 import { Comment } from '../Comment';
@@ -9,6 +10,8 @@ import { IPost } from './@types';
 import styles from './styles.module.scss';
 
 export function Post({ id, customer, createdAt, comments, content }: IPost): JSX.Element {
+
+  const [newComment, setNewComment] = useState('')
 
   if (!comments || !customer || !createdAt || !content || !id) {
     return (
@@ -24,6 +27,18 @@ export function Post({ id, customer, createdAt, comments, content }: IPost): JSX
     locale: ptBR,
     addSuffix: true,
   });
+
+  function handleCreateNewComment(event: any) {
+    event?.preventDefault();
+
+    // setComments([...comments, newComment])
+
+    setNewComment('')
+  }
+
+  function handleNewCommentChange(event: any) {
+    setNewComment(event?.target.value)
+  } 
 
   return (
     <article className={styles.post}>
@@ -48,14 +63,20 @@ export function Post({ id, customer, createdAt, comments, content }: IPost): JSX
         
       </div>
       <form
+        onSubmit={handleCreateNewComment}
         className={styles.commentForm}
       >
         <strong>Deixe seu feedback</strong>
         <textarea
+          name='comment'
           placeholder='Deixe um comentário'
+          value={newComment}
+          onChange={handleNewCommentChange}
         />
         <footer>
-          <button type='submit'>Publicar</button>
+          <button type='submit'>
+            Publicar
+          </button>
         </footer>
       </form>
       <div className={styles.commentList}>

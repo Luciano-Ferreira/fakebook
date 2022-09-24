@@ -4,6 +4,7 @@ import { Icon } from '../../components/Icon';
 import { Popover } from '@headlessui/react';
 import { useState, useEffect } from 'react';
 import EmojiPicker from './EmojiPicker';
+import { Editor } from 'slate';
 
 
 export const EmojiPickerButton = ({ format, icon }: { format: string, icon?: any }) => {
@@ -16,10 +17,9 @@ export const EmojiPickerButton = ({ format, icon }: { format: string, icon?: any
 
     setTimeout(() => {
       setChosenEmoji(event.native);
-      console.log(event.native);
     }, 100);
-    console.log(chosenEmoji.native);
-    editor.insertText(event.native!)
+    
+    Editor.insertText(editor, event.native!)
 
   };
   return (
