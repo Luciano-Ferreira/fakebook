@@ -3,7 +3,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { useState } from 'react';
 
 import { Avatar } from '../Avatar';
-import { Comment } from '../Comment';
+import { Comment } from './Comment';
 import { Loading } from '../Loading';
 
 import { IPost } from './@types';

@@ -1,8 +1,8 @@
 import { ThumbsUp, Trash } from 'phosphor-react';
 import { format, formatDistanceToNow } from 'date-fns';
 
-import { Avatar } from '../Avatar';
-import { Loading } from '../Loading';
+import { Avatar } from '../../Avatar';
+import { Loading } from '../../Loading';
 
 import ptBR from 'date-fns/locale/pt-BR';
 
