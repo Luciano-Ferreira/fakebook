@@ -3,13 +3,17 @@ import { Loading } from '../../components/Loading';
 import { NewPostField } from '../../components/NewPostField';
 import { Post } from '../../components/Post';
 import { Sidebar } from '../../components/Sidebar';
-import { useGetPostsWithCommentsQuery } from '../../graphql/generated';
+import { useGetPostsWithCommentsQuery, useGetLoggedUserQuery } from '../../graphql/generated';
 
 export function Feed(): JSX.Element {
   const { data, loading, error } = useGetPostsWithCommentsQuery();
-  if (loading) return <Loading />
-  if (error) return <p>error...</p>
-  if (!data || !data.posts) {
+
+  const { data: loggedUserData, loading: loggedUserLoading, error: loggedUserError } = useGetLoggedUserQuery();
+
+
+  if (loading || loggedUserLoading) return <Loading />
+  if (error || loggedUserError) return <p>error...</p>
+  if (!data || !data.posts || !loggedUserData || !loggedUserData.loggedUser) {
     return (
       <Loading />
     )
@@ -21,10 +25,10 @@ export function Feed(): JSX.Element {
 
       <div className='max-w-[70rem] my-8 mx-auto py-0 px-1 gap-8 items-start grid lg:grid-cols-[256px_1fr] md:grid-cols-1'>
         <Sidebar
-          banner='https://images.unsplash.com/29/night-square.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=50'
-          bio='Security engineer'
-          username='Eliot Alderson'
-          avatar='https://user-images.githubusercontent.com/46464433/177191269-5cabb63b-09db-4ed0-9192-bef56c8a7fe7.jpeg'
+          banner={loggedUserData.loggedUser.banner}
+          bio={loggedUserData.loggedUser.role}
+          username={loggedUserData.loggedUser.name}
+          avatar={loggedUserData.loggedUser.avatar}
         />
         <main>
 

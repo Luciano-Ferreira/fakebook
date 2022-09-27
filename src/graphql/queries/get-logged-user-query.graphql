@@ -1,0 +1,9 @@
+query GetLoggedUser {
+  loggedUser(where: {id: "cl8kfnhg7mwsy0bluke9bllfx"}) {
+    id
+    name
+    role
+    avatar
+    banner
+  }
+}

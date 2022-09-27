@@ -1,10 +1,10 @@
 import { PencilLine } from 'phosphor-react';
 
 interface Props {
-  banner: string;
   username: string;
-  avatar: string;
-  bio: string;
+  banner?: string;
+  avatar?: string;
+  bio?: string;
 }
 
 export function Sidebar({ banner, username, bio, avatar }: Props): JSX.Element {
