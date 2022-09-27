@@ -1,5 +1,4 @@
 import isHotkey from 'is-hotkey';
-import Picker from 'emoji-picker-react';
 import { Code, LinkSimpleHorizontal, TextBolder, Image, Smiley } from 'phosphor-react';
 import {
   FormEvent,

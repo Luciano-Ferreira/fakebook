@@ -1,8 +1,7 @@
-import { useSlate } from 'slate-react';
+import { ReactEditor, useSlate } from 'slate-react';
 import { Button } from '../../components/Button';
 import { Icon } from '../../components/Icon';
 import { Popover } from '@headlessui/react';
-import { useState, useEffect } from 'react';
 import EmojiPicker from './EmojiPicker';
 import { Editor } from 'slate';
 
@@ -10,17 +9,15 @@ import { Editor } from 'slate';
 export const EmojiPickerButton = ({ format, icon }: { format: string, icon?: any }) => {
   const editor = useSlate();
 
-  const [chosenEmoji, setChosenEmoji] = useState<any>(null);
+  const onEmojiClick = async (emoji: any) => {
+    await setTimeout(() => {
+      Editor.end(editor, [0, 0]);
+      
 
-
-  const onEmojiClick = async (event: any, emojiObject: any) => {
-
-    setTimeout(() => {
-      setChosenEmoji(event.native);
     }, 100);
     
-    Editor.insertText(editor, event.native!)
 
+    Editor.insertText(editor, emoji.native!)
   };
   return (
     <Popover>
@@ -37,7 +34,7 @@ export const EmojiPickerButton = ({ format, icon }: { format: string, icon?: any
             </Button>
           </Popover.Button>
           <Popover.Panel className='absolute right-4'>
-            <EmojiPicker onEmojiSelect={onEmojiClick} />
+            <EmojiPicker  onEmojiSelect={onEmojiClick} />
           </Popover.Panel>
         </>
       )}

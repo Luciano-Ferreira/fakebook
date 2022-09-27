@@ -3,11 +3,12 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { useState } from 'react';
 
 import { Avatar } from '../Avatar';
-import { Comment } from '../Comment';
+import { Comment } from './Comment';
 import { Loading } from '../Loading';
 
 import { IPost } from './@types';
 import styles from './styles.module.scss';
+import { IComment } from './Comment/@types';
 
 export function Post({ id, customer, createdAt, comments, content }: IPost): JSX.Element {
 
@@ -39,6 +40,10 @@ export function Post({ id, customer, createdAt, comments, content }: IPost): JSX
   function handleNewCommentChange(event: any) {
     setNewComment(event?.target.value)
   } 
+
+  function deleteComment(comment: IComment) {
+    console.log(comment.id)
+  }
 
   return (
     <article className={styles.post}>
@@ -84,11 +89,8 @@ export function Post({ id, customer, createdAt, comments, content }: IPost): JSX
           return (
             <Comment
               key={comment.id}
-              id={comment.id}
-              author={comment.author}
-              content={comment.content.html}
-              createdAt={comment.createdAt}
-              likes={comment.likes}
+              comment={comment}
+              onDeleteComment={deleteComment}
             />
           )
         })}
