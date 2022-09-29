@@ -6385,6 +6385,14 @@ export enum _SystemDateTimeFieldVariation {
   Localization = 'localization'
 }
 
+export type CreateNewPostMutationVariables = Exact<{
+  content: Scalars['RichTextAST'];
+  customerId?: Scalars['ID'];
+}>;
+
+
+export type CreateNewPostMutation = { __typename?: 'Mutation', createPost?: { __typename?: 'Post', id: string, customer?: { __typename?: 'Customer', id: string, name: string, avatar: string } | null } | null };
+
 export type GetLoggedUserQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -6396,6 +6404,45 @@ export type GetPostsWithCommentsQueryVariables = Exact<{ [key: string]: never; }
 export type GetPostsWithCommentsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, createdAt: any, customer?: { __typename?: 'Customer', id: string, avatar: string, name: string, role: string } | null, content: { __typename?: 'RichText', html: string }, comments: Array<{ __typename?: 'Comment', id: string, likes?: number | null, createdAt: any, author?: { __typename?: 'Author', id: string, name: string, role: string, avatar: string } | null, content: { __typename?: 'RichText', html: string } }> }> };
 
 
+export const CreateNewPostDocument = gql`
+    mutation CreateNewPost($content: RichTextAST!, $customerId: ID! = "cl58rsmw49vv00blrkbyt9s66") {
+  createPost(data: {content: $content, customer: {connect: {id: $customerId}}}) {
+    id
+    customer {
+      id
+      name
+      avatar
+    }
+  }
+}
+    `;
+export type CreateNewPostMutationFn = Apollo.MutationFunction<CreateNewPostMutation, CreateNewPostMutationVariables>;
+
+/**
+ * __useCreateNewPostMutation__
+ *
+ * To run a mutation, you first call `useCreateNewPostMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateNewPostMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createNewPostMutation, { data, loading, error }] = useCreateNewPostMutation({
+ *   variables: {
+ *      content: // value for 'content'
+ *      customerId: // value for 'customerId'
+ *   },
+ * });
+ */
+export function useCreateNewPostMutation(baseOptions?: Apollo.MutationHookOptions<CreateNewPostMutation, CreateNewPostMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateNewPostMutation, CreateNewPostMutationVariables>(CreateNewPostDocument, options);
+      }
+export type CreateNewPostMutationHookResult = ReturnType<typeof useCreateNewPostMutation>;
+export type CreateNewPostMutationResult = Apollo.MutationResult<CreateNewPostMutation>;
+export type CreateNewPostMutationOptions = Apollo.BaseMutationOptions<CreateNewPostMutation, CreateNewPostMutationVariables>;
 export const GetLoggedUserDocument = gql`
     query GetLoggedUser {
   loggedUser(where: {id: "cl8kfnhg7mwsy0bluke9bllfx"}) {

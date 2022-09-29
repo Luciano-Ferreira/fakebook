@@ -1,0 +1,10 @@
+mutation CreateNewPost($content: RichTextAST!, $customerId: ID! = "cl58rsmw49vv00blrkbyt9s66") {
+  createPost(data: {content: $content, customer: {connect: {id: $customerId}}}) {
+    id
+    customer {
+      id
+      name
+      avatar
+    }
+  }
+}
