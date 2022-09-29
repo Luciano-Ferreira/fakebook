@@ -51,7 +51,7 @@ export type ImageElement = {
   children: EmptyText[]
 }
 
-export type LinkElement = { type: 'link'; url: string; children: Descendant[] }
+export type LinkElement = { type: 'link'; href: string; children: Descendant[] }
 
 export type ButtonElement = { type: 'button'; children: Descendant[] }
 

@@ -19,7 +19,7 @@ export const Link = ({ attributes, children, element }: Props) => {
       }
     >
       <InlineChromiumBugfix />
-      {children}
+        {children}
       <InlineChromiumBugfix />
     </a>
   )

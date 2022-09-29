@@ -28,9 +28,9 @@ const InsertLinkButton = ({ format, icon }: Props) => {
       active={isLinkActive(editor)}
       onMouseDown={(event: any) => {
         event.preventDefault()
-        const url = window.prompt('Digite ou cole um link aqui:')
-        if (!url) return
-        insertLink(editor, url)
+        const href = window.prompt('Digite ou cole um link aqui:')
+        if (!href) return
+        insertLink(editor, href)
       }}
       format={format} 
       
@@ -60,9 +60,9 @@ const RemoveLinkButton = () => {
 }
 
 
-const insertLink = (editor: CustomEditor, url: string) => {
+const insertLink = (editor: CustomEditor, href: string) => {
   if (editor.selection) {
-    wrapLink(editor, url)
+    wrapLink(editor, href)
   }
 }
 
@@ -101,7 +101,7 @@ const unwrapLink = (editor: CustomEditor) => {
 }
 
 
-const wrapLink = (editor: CustomEditor, url: string) => {
+const wrapLink = (editor: CustomEditor, href: string) => {
   if (isLinkActive(editor)) {
     unwrapLink(editor)
   }
@@ -110,8 +110,8 @@ const wrapLink = (editor: CustomEditor, url: string) => {
   const isCollapsed = selection && Range.isCollapsed(selection)
   const link: LinkElement = {
     type: 'link',
-    url,
-    children: isCollapsed ? [{ text: url }] : [],
+    href,
+    children: isCollapsed ? [{ text: href }] : [],
   }
 
   if (isCollapsed) {
