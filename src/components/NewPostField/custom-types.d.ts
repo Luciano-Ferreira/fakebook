@@ -47,8 +47,13 @@ export type HeadingTwoElement = {
 
 export type ImageElement = {
   type: 'image'
-  url: string
-  children: EmptyText[]
+  width: number;
+  height: number;
+  src: string;
+  children: EmptyText[];
+  handle: string;
+  mimeType: string;
+  alt: string;
 }
 
 export type LinkElement = { type: 'link'; href: string; children: Descendant[] }

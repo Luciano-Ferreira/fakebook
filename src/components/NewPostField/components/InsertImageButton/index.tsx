@@ -16,12 +16,12 @@ const InsertImageButton = ({ icon }: Props) => {
     <Button
       onMouseDown={(event: Event) => {
         event.preventDefault()
-        const url = window.prompt('Enter the URL of the image:')
-        if (url && !isImageUrl(url)) {
+        const src = window.prompt('Enter the URL of the image:')
+        if (src && !isImageUrl(src)) {
           alert('URL is not an image')
           return
         }
-        insertImage(editor, url!)
+        insertImage(editor, src!)
       }}
     >
       <Icon>{icon}</Icon>
@@ -29,10 +29,10 @@ const InsertImageButton = ({ icon }: Props) => {
   )
 }
 
-const insertImage = (editor: CustomEditor, url: string) => {
+const insertImage = (editor: CustomEditor, src: string) => {
   const text = { text: '' }
   
-  const image: ImageElement = { type: 'image', url, children: [text] }
+  const image: ImageElement = { width: 1500, height: 1500, mimeType: 'image/png', handle: 'N3JOKsXrT9ezCU4Ba6LI', type: 'image', src, alt: 'test', children: [text] }
   Transforms.insertNodes(editor, image)
 }
 

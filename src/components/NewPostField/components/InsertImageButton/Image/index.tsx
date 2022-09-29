@@ -32,7 +32,7 @@ export const Image = ({ attributes, children, element }: Props) => {
         className='relative'
       >
         <img
-          src={element.url}
+          src={element.src}
           className={classNames('block max-w-full max-h-[20em] shadow-none', { 'shadow-[0_0_0_3px_#43be73]': selected && focused })}
         />
         <button

@@ -34,6 +34,7 @@ import { withInlines } from './components/InsertLinkButton';
 import { EmojiPickerButton } from './components/EmojiPickerButton';
 
 import styles from './styles.module.scss';
+import { useCreateNewPostMutation } from '../../graphql/generated';
 
 // types and hotkey shortcuts
 const htk = 'mod+b' as string;
@@ -44,14 +45,26 @@ const HOTKEYS = {
 
 
 export const NewPostField = () => {
-  const [value, setValue] = useState<Descendant[]>([{ type: 'paragraph', children: [{ text: '' }] }]);
+  const [value, setValue] = useState<Descendant[]>([{ type: 'image', width: 1500, height: 1500, src:'https://github.com/luciano-ferreira.png', handle:'N3JOKsXrT9ezCU4Ba6LI', alt:'test', mimeType: 'image/png', children: [{ text: '' }] }]);
   const renderElement = useCallback((props: RenderElementProps) => <Element {...props} />, []);
   const renderLeaf = useCallback((props: RenderLeafProps) => <Leaf {...props} />, []);
   const editor = useMemo(() => withInlines(withHistory(withReact(createEditor()))), []);
 
+  const [createNewPost, { loading, error }] = useCreateNewPostMutation();
+
   
-  function handleSubmit(event: FormEvent) {
-    event.preventDefault()
+  async function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+
+    const newPostData = await createNewPost({
+      variables: {
+        customerId: 'cl58rsmw49vv00blrkbyt9s66',
+        content: { children: value }
+      }
+    })
+    console.log(loading)
+    console.log(error)
+    console.log(newPostData)
   }
 
   return (
@@ -95,7 +108,6 @@ export const NewPostField = () => {
         <button
           type='submit'
           onClick={() => console.log(JSON.stringify(value))}
-
         >
           Postar
         </button>
