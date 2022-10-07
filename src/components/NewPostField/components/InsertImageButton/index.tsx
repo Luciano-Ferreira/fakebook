@@ -55,7 +55,7 @@ const InsertImageButton = ({ icon }: Props) => {
     }
 
     insertImage(editor, src!, alt, title,width, height)
-    console.log(src, alt, title, width, height)
+    
 
     closeModal()
   }

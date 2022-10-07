@@ -57,7 +57,7 @@ export type ImageElement = {
   title?: string;
 }
 
-export type LinkElement = { type: 'link'; href: string; children: Descendant[] }
+export type LinkElement = { type: 'link'; title?: string; openInNewTab: boolean; href: string; children: Descendant[] }
 
 export type ButtonElement = { type: 'button'; children: Descendant[] }
 
