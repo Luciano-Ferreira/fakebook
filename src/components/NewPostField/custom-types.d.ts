@@ -51,9 +51,10 @@ export type ImageElement = {
   height: number;
   src: string;
   children: EmptyText[];
-  handle: string;
+  handle?: string;
   mimeType: string;
-  alt: string;
+  alt?: string;
+  title?: string;
 }
 
 export type LinkElement = { type: 'link'; href: string; children: Descendant[] }

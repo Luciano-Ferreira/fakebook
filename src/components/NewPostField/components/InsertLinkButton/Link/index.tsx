@@ -14,7 +14,7 @@ export const Link = ({ attributes, children, element }: Props) => {
       href={element.url}
       className={
         selected
-          ? 'text-green-500 shadow shadow-green-500'
+          ? 'text-green-500 underline'
           : 'text-green-500'
       }
     >

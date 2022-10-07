@@ -38,3 +38,6 @@ Technologies:
   - formatDistanceToNow
     - addSuffix
 
+- [HeadlessUI](https://headlessui.com/react/dialog)
+  - popover
+  - dialog (Modal)

@@ -1,0 +1,21 @@
+.dialog {
+  @apply relative z-10
+}
+
+.formImg {
+  @apply flex flex-col mt-6
+}
+
+.formImg {
+  label {
+    @apply flex flex-col
+  }
+}
+
+.formImg {
+  label {
+    input {
+      @apply bg-gray-900 rounded-lg p-2
+    }
+  }
+}

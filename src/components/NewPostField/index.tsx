@@ -45,7 +45,7 @@ const HOTKEYS = {
 
 
 export const NewPostField = () => {
-  const [value, setValue] = useState<Descendant[]>([{ type: 'image', width: 1500, height: 1500, src:'https://github.com/luciano-ferreira.png', handle:'N3JOKsXrT9ezCU4Ba6LI', alt:'test', mimeType: 'image/png', children: [{ text: '' }] }]);
+  const [value, setValue] = useState<Descendant[]>([{ type: 'paragraph', children: [{ text: '' }] }]);
   const renderElement = useCallback((props: RenderElementProps) => <Element {...props} />, []);
   const renderLeaf = useCallback((props: RenderLeafProps) => <Leaf {...props} />, []);
   const editor = useMemo(() => withInlines(withHistory(withReact(createEditor()))), []);
