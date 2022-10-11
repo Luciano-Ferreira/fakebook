@@ -159,11 +159,11 @@ const RemoveLinkButton = () => {
 
 const insertLink = (editor: CustomEditor, href: string, title: string, openInNewTab: boolean) => {
   if (editor.selection) {
-    wrapLink(editor, href, title, openInNewTab)
+    wrapLink(editor, href)
   }
 }
 
-export const withInlines = (editor: BaseEditor & SlateReact.ReactEditor & HistoryEditor, title: string, openInNewTab: boolean) => {
+export const withInlines = (editor: BaseEditor & SlateReact.ReactEditor & HistoryEditor) => {
   const { insertData, insertText, isInline } = editor
 
   editor.isInline = (element: any) =>
@@ -171,7 +171,7 @@ export const withInlines = (editor: BaseEditor & SlateReact.ReactEditor & Histor
 
   editor.insertText = (text: string) => {
     if (text && isUrl(text)) {
-      wrapLink(editor, text, title, openInNewTab)
+      wrapLink(editor, text)
     } else {
       insertText(text)
     }
@@ -181,7 +181,7 @@ export const withInlines = (editor: BaseEditor & SlateReact.ReactEditor & Histor
     const text = data.getData('text/plain')
 
     if (text && isUrl(text)) {
-      wrapLink(editor, text, title, openInNewTab)
+      wrapLink(editor, text)
     } else {
       insertData(data)
     }
@@ -198,7 +198,7 @@ const unwrapLink = (editor: CustomEditor) => {
 }
 
 
-const wrapLink = (editor: CustomEditor, href: string, title: string, openInNewTab: boolean) => {
+const wrapLink = (editor: CustomEditor, href: string) => {
   if (isLinkActive(editor)) {
     unwrapLink(editor)
   }
@@ -210,8 +210,8 @@ const wrapLink = (editor: CustomEditor, href: string, title: string, openInNewTa
   const link: LinkElement = {
     type: 'link',
     href,
-    title,
-    openInNewTab,
+    title: href,
+    openInNewTab: false,
     children: isCollapsed ? [{ text: href }] : [],
   }
 

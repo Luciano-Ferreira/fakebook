@@ -15,6 +15,7 @@ interface Props {
   icon: any;
   format: string;
 }
+
 const InsertImageButton = ({ icon }: Props) => {
   const editor = useSlateStatic();
   const [isOpen, setIsOpen] = useState(false);
