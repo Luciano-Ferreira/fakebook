@@ -56,15 +56,15 @@ export const NewPostField = () => {
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    const newPostData = await createNewPost({
-      variables: {
-        customerId: 'cl58rsmw49vv00blrkbyt9s66',
-        content: { children: value }
-      }
-    })
+    // const newPostData = await createNewPost({
+    //   variables: {
+    //     customerId: 'cl58rsmw49vv00blrkbyt9s66',
+    //     content: { children: value }
+    //   }
+    // })
     console.log(loading)
     console.log(error)
-    console.log(newPostData)
+    //console.log(newPostData)
   }
 
   return (

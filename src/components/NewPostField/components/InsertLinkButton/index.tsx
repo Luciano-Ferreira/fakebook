@@ -52,7 +52,7 @@ const InsertLinkButton = ({ format, icon }: Props) => {
 
     const href = event.target.href.value;
     const title = event.target.title.value;
-    const openInNewTab = event.target.openInNewTab.value == 'on' ? true : false;
+    const openInNewTab = event.target.openInNewTab.checked;
 
     insertLink(editor, href, title, openInNewTab)
 
@@ -159,7 +159,7 @@ const RemoveLinkButton = () => {
 
 const insertLink = (editor: CustomEditor, href: string, title: string, openInNewTab: boolean) => {
   if (editor.selection) {
-    wrapLink(editor, href)
+    wrapLink(editor, href, title, openInNewTab)
   }
 }
 
@@ -198,7 +198,7 @@ const unwrapLink = (editor: CustomEditor) => {
 }
 
 
-const wrapLink = (editor: CustomEditor, href: string) => {
+const wrapLink = (editor: CustomEditor, href: string, title=href, openInNewTab=true) => {
   if (isLinkActive(editor)) {
     unwrapLink(editor)
   }
@@ -210,8 +210,8 @@ const wrapLink = (editor: CustomEditor, href: string) => {
   const link: LinkElement = {
     type: 'link',
     href,
-    title: href,
-    openInNewTab: false,
+    title,
+    openInNewTab ,
     children: isCollapsed ? [{ text: href }] : [],
   }
 

@@ -159,11 +159,11 @@ const insertImage = (
   const text = { text: '' }
 
   const image: ImageElement = {
+    type: 'image',
     width,
     height,
     mimeType: `image/${new URL(src).pathname.split('.').pop()}`,
     title,
-    type: 'image',
     src,
     alt,
     children: [text]

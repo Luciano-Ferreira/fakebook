@@ -50,14 +50,20 @@ export type ImageElement = {
   width: number;
   height: number;
   src: string;
-  children: EmptyText[];
   handle?: string;
   mimeType: string;
   alt?: string;
   title?: string;
+  children: EmptyText[];
 }
 
-export type LinkElement = { type: 'link'; title?: string; openInNewTab: boolean; href: string; children: Descendant[] }
+export type LinkElement = { 
+  type: 'link'; 
+  title: string; 
+  openInNewTab: boolean; 
+  href: string; 
+  children: Descendant[] 
+}
 
 export type ButtonElement = { type: 'button'; children: Descendant[] }
 
