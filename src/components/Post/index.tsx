@@ -1,5 +1,6 @@
-import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
+
+import { format, formatDistanceToNow } from 'date-fns';
 import { useState } from 'react';
 
 import { Avatar } from '../Avatar';
@@ -12,6 +13,7 @@ import styles from './styles.module.scss';
 export function Post({ id, customer, createdAt, comments, content }: IPost): JSX.Element {
 
   const [newComment, setNewComment] = useState('')
+  console.log(JSON.stringify(comments, null, 2))
 
   if (!comments || !customer || !createdAt || !content || !id) {
     return (
@@ -86,7 +88,7 @@ export function Post({ id, customer, createdAt, comments, content }: IPost): JSX
               key={comment.id}
               id={comment.id}
               author={comment.author}
-              content={comment.content.html}
+              content={comment.content}
               createdAt={comment.createdAt}
               likes={comment.likes}
             />

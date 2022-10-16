@@ -1264,7 +1264,7 @@ export type ColorInput = {
 export type Comment = Node & {
   __typename?: 'Comment';
   author?: Maybe<Author>;
-  content: RichText;
+  content: Scalars['String'];
   /** The time the document was created */
   createdAt: Scalars['DateTime'];
   /** User that created this document */
@@ -1359,7 +1359,7 @@ export type CommentConnection = {
 
 export type CommentCreateInput = {
   author?: InputMaybe<AuthorCreateOneInlineInput>;
-  content: Scalars['RichTextAST'];
+  content: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
   likes?: InputMaybe<Scalars['Int']>;
   post?: InputMaybe<CommentPostCreateOneInlineInput>;
@@ -1400,6 +1400,25 @@ export type CommentManyWhereInput = {
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']>;
   author?: InputMaybe<AuthorWhereInput>;
+  content?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  content_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  content_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  content_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  content_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  content_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  content_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  content_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  content_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  content_starts_with?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -1491,6 +1510,8 @@ export type CommentManyWhereInput = {
 };
 
 export enum CommentOrderByInput {
+  ContentAsc = 'content_ASC',
+  ContentDesc = 'content_DESC',
   CreatedAtAsc = 'createdAt_ASC',
   CreatedAtDesc = 'createdAt_DESC',
   IdAsc = 'id_ASC',
@@ -1585,7 +1606,7 @@ export type CommentPostWhereUniqueInput = {
 
 export type CommentUpdateInput = {
   author?: InputMaybe<AuthorUpdateOneInlineInput>;
-  content?: InputMaybe<Scalars['RichTextAST']>;
+  content?: InputMaybe<Scalars['String']>;
   likes?: InputMaybe<Scalars['Int']>;
   post?: InputMaybe<CommentPostUpdateOneInlineInput>;
 };
@@ -1608,7 +1629,7 @@ export type CommentUpdateManyInlineInput = {
 };
 
 export type CommentUpdateManyInput = {
-  content?: InputMaybe<Scalars['RichTextAST']>;
+  content?: InputMaybe<Scalars['String']>;
   likes?: InputMaybe<Scalars['Int']>;
 };
 
@@ -1672,6 +1693,25 @@ export type CommentWhereInput = {
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']>;
   author?: InputMaybe<AuthorWhereInput>;
+  content?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  content_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  content_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  content_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  content_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  content_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  content_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  content_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  content_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  content_starts_with?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -6401,7 +6441,7 @@ export type GetLoggedUserQuery = { __typename?: 'Query', loggedUser?: { __typena
 export type GetPostsWithCommentsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPostsWithCommentsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, createdAt: any, customer?: { __typename?: 'Customer', id: string, avatar: string, name: string, role: string } | null, content: { __typename?: 'RichText', html: string }, comments: Array<{ __typename?: 'Comment', id: string, likes?: number | null, createdAt: any, author?: { __typename?: 'Author', id: string, name: string, role: string, avatar: string } | null, content: { __typename?: 'RichText', html: string } }> }> };
+export type GetPostsWithCommentsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, createdAt: any, customer?: { __typename?: 'Customer', id: string, avatar: string, name: string, role: string } | null, content: { __typename?: 'RichText', html: string }, comments: Array<{ __typename?: 'Comment', id: string, likes?: number | null, createdAt: any, content: string, author?: { __typename?: 'Author', id: string, name: string, role: string, avatar: string } | null }> }> };
 
 
 export const CreateNewPostDocument = gql`
@@ -6505,9 +6545,7 @@ export const GetPostsWithCommentsDocument = gql`
         role
         avatar
       }
-      content {
-        html
-      }
+      content
     }
   }
 }
