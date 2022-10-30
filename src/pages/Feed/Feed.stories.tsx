@@ -4,7 +4,7 @@ import { client } from '../../lib/apollo';
 import { Feed } from './';
 
 export default {
-  title: 'Components/Feed',
+  title: 'Pages/Feed',
   component: Feed,
   decorators: [
     (Story) => {

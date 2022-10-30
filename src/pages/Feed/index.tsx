@@ -2,6 +2,7 @@ import { Header } from '../../components/Header';
 import { Loading } from '../../components/Loading';
 import { NewPostField } from '../../components/NewPostField';
 import { Post } from '../../components/Post';
+import { PostList } from '../../components/PostList';
 import { Sidebar } from '../../components/Sidebar';
 import { useGetPostsWithCommentsQuery, useGetLoggedUserQuery } from '../../graphql/generated';
 
@@ -30,8 +31,7 @@ export function Feed(): JSX.Element {
           username={loggedUserData.loggedUser.name}
           avatar={loggedUserData.loggedUser.avatar}
         />
-        <main>
-
+        <PostList>
           <NewPostField />
           
           {data?.posts.map(({ id, customer, createdAt, content, comments }) => {
@@ -46,7 +46,7 @@ export function Feed(): JSX.Element {
               />
             )
           })}
-        </main>
+        </PostList>
       </div>
     </>
   )
