@@ -10,4 +10,5 @@ export interface IComment {
   createdAt?: Date;
   content?: string;
   likes?: number | null;
+  onDelete: (id: string) => void;
 }

@@ -10,9 +10,7 @@ import { IComment } from './@types';
 
 import styles from './styles.module.scss';
 
-export function Comment({ id, author, createdAt, content, likes }: IComment): JSX.Element {
-
-  console.log(content)
+export function Comment({ id, author, createdAt, content, likes, onDelete }: IComment): JSX.Element {
   if (!author || !createdAt || !content || !id) {
     return (
       <Loading />
@@ -26,6 +24,11 @@ export function Comment({ id, author, createdAt, content, likes }: IComment): JS
     locale: ptBR,
     addSuffix: true,
   });
+
+  function handleDeleteComment() {
+    console.log(id!)
+    onDelete(id!)
+  }
 
   return (
     <div className={styles.comment}>
@@ -46,7 +49,7 @@ export function Comment({ id, author, createdAt, content, likes }: IComment): JS
                 {publishedDateCommentRelativeToNow}
               </time>
             </div>
-            <button title='Deletar comentário'>
+            <button title='Deletar comentário' onClick={handleDeleteComment}>
               <Trash size={24} />
             </button>
           </header>

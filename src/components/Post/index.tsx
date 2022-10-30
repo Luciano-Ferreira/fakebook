@@ -1,6 +1,6 @@
 import { format, formatDistanceToNow } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 import { Avatar } from "../Avatar";
 import { Comment } from "./Comment";
@@ -19,7 +19,9 @@ export function Post({
 }: IPost): JSX.Element {
   const [newComment, setNewComment] = useState("");
 
-  if (!comments || !customer || !createdAt || !content || !id) {
+  const [stateComments, setStateComments] = useState(comments);
+
+  if (!customer || !createdAt || !content || !id) {
     return <Loading />;
   }
 
@@ -39,10 +41,11 @@ export function Post({
     }
   );
 
+  function handleNewCommentInvalid(event: FormEvent) {
+    console.log(event);
+  }
   function handleCreateNewComment(event: any) {
     event?.preventDefault();
-
-    // setComments([...comments, newComment])
 
     setNewComment("");
   }
@@ -51,8 +54,13 @@ export function Post({
     setNewComment(event?.target.value);
   }
 
-  function deleteComment(comment: IComment) {
-    console.log(comment.id);
+  function deleteComment(commentToDelete: string) {
+    // remover um comentario (estado)
+
+    const commentsWithoutDeletedOne = stateComments?.filter((comment) => {
+      return comment.id !== commentToDelete;
+    });
+    setStateComments(commentsWithoutDeletedOne);
   }
 
   return (
@@ -80,13 +88,14 @@ export function Post({
           placeholder="Deixe um comentário"
           value={newComment}
           onChange={handleNewCommentChange}
+          onInvalid={handleNewCommentInvalid}
         />
         <footer>
           <button type="submit">Publicar</button>
         </footer>
       </form>
       <div className={styles.commentList}>
-        {comments?.map((comment) => {
+        {stateComments?.map((comment) => {
           return (
             <Comment
               key={comment.id}
@@ -95,6 +104,7 @@ export function Post({
               content={comment.content}
               createdAt={comment.createdAt}
               likes={comment.likes}
+              onDelete={deleteComment}
             />
           );
         })}
