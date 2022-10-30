@@ -19,9 +19,11 @@
   @apply bg-transparent border-0 text-gray-400 cursor-pointer leading-[0] hover:text-red-500
 }
 
-.commentContainer p {
-  @apply mt-4 text-gray-300
+
+.commentContainer pre {
+  @apply mt-4 text-gray-300 font-sans
 }
+
 
 .commentContent a {
     @apply font-bold text-green-500 hover:text-green-300

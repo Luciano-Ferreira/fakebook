@@ -21,9 +21,7 @@ query GetPostsWithComments {
         role
         avatar
       }
-      content {
-        html
-      }
+      content
     }
   }
 }

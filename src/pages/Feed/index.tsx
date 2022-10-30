@@ -7,8 +7,14 @@ import { useGetPostsWithCommentsQuery } from '../../graphql/generated';
 
 export function Feed(): JSX.Element {
   const { data, loading, error } = useGetPostsWithCommentsQuery();
+  console.log(JSON.stringify(data, null, 2))
   if (loading) return <Loading />
-  if (error) return <p>error...</p>
+  if (error) {
+    console.log(error)
+    return (
+      <p>error...</p>
+    )
+  }
   if (!data || !data.posts) {
     return (
       <Loading />
