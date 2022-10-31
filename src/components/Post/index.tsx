@@ -88,11 +88,11 @@ export function Post({
     event.target.setCustomValidity('Esse campo é obrigatorio!')
   }
 
-  function deleteComment(commentToDelete: string) {
+  function deleteComment(commentId: string) {
     // remover um comentario (estado)
 
     const commentsWithoutDeletedOne = stateComments?.filter((comment) => {
-      return comment.id !== commentToDelete;
+      return comment.id !== commentId;
     });
     setStateComments(commentsWithoutDeletedOne);
   }

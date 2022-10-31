@@ -9,8 +9,11 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { IComment } from './@types';
 
 import styles from './styles.module.scss';
+import { ChangeEvent, useState } from 'react';
 
 export function Comment({ id, author, createdAt, content, likes, onDelete }: IComment): JSX.Element {
+  const [likeCount, setLikeCount] = useState(likes!)
+
   if (!author || !createdAt || !content || !id) {
     return (
       <Loading />
@@ -26,8 +29,11 @@ export function Comment({ id, author, createdAt, content, likes, onDelete }: ICo
   });
 
   function handleDeleteComment() {
-    console.log(id!)
     onDelete(id!)
+  }
+
+  function handleLikeComment() {
+    setLikeCount(likeCount + 1)
   }
 
   return (
@@ -58,8 +64,8 @@ export function Comment({ id, author, createdAt, content, likes, onDelete }: ICo
           </div>
         </div>
         <footer className={styles.footerComment}>
-          <button>
-            <ThumbsUp size={20} /> Aplaudir <span>{likes}</span>
+          <button onClick={handleLikeComment}>
+            <ThumbsUp size={20} /> Aplaudir <span>{likeCount}</span>
           </button>
         </footer>
       </div>
