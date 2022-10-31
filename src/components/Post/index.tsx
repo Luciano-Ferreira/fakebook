@@ -1,6 +1,7 @@
 import { format, formatDistanceToNow } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
-import { ChangeEvent, EventHandler, FormEvent, InvalidEvent, SyntheticEvent, useState } from "react";
+import { ChangeEvent, InvalidEvent, useState } from "react";
+import { v4 as uuid } from 'uuid';
 
 import { Avatar } from "../Avatar";
 import { Comment } from "./Comment";
@@ -18,7 +19,7 @@ export function Post({
   content,
 }: IPost): JSX.Element {
   const [newComment, setNewComment] = useState({
-    id: 'cl58rzsq094vq0clv2wpauw95',
+    id: uuid(),
     author: {
       id: '',
       avatar: '',
@@ -58,7 +59,7 @@ export function Post({
     setStateComments([...stateComments, newComment])
 
     setNewComment({
-      id: 'cl58rzsq094vq0clv2wpauw95',
+      id: uuid(),
       author: {
         id: '',
         avatar: '',
@@ -73,7 +74,7 @@ export function Post({
 
   function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('');
-    
+
     setNewComment(comment => {
       return {
         ...comment,
@@ -95,6 +96,8 @@ export function Post({
     });
     setStateComments(commentsWithoutDeletedOne);
   }
+
+  const isNewCommentEmpty = newComment.content.length === 0;
 
   return (
     <article className={styles.post}>
@@ -125,7 +128,9 @@ export function Post({
           required
         />
         <footer>
-          <button type="submit">Publicar</button>
+          <button type="submit" disabled={isNewCommentEmpty}>
+            Publicar
+          </button>
         </footer>
       </form>
       <div className={styles.commentList}>
