@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { ChangeEvent, InvalidEvent, useState } from 'react';
@@ -31,7 +32,7 @@ export function Post({
     likes: 0
   });
 
-  const [stateComments, setStateComments] = useState(comments);
+  const [stateComments, setStateComments] = useState(comments!);
 
   if (!customer || !createdAt || !content || !id) {
     return <Loading />;

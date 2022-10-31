@@ -7,17 +7,17 @@ import { useGetPostsWithCommentsQuery } from '../../graphql/generated';
 
 export function Feed(): JSX.Element {
   const { data, loading, error } = useGetPostsWithCommentsQuery();
-  if (loading) return <Loading />
+  if (loading) return <Loading />;
   if (error) {
-    console.log(error)
+    console.log(error);
     return (
       <p>error...</p>
-    )
+    );
   }
   if (!data || !data.posts) {
     return (
       <Loading />
-    )
+    );
   }
 
   return (
@@ -45,10 +45,10 @@ export function Feed(): JSX.Element {
                 content={content.html}
                 comments={comments}
               />
-            )
+            );
           })}
         </main>
       </div>
     </>
-  )
+  );
 }
