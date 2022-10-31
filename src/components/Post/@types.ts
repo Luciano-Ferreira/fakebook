@@ -15,11 +15,11 @@ interface Author {
 }
 
 interface Comment {
-  id?: string;
-  author?: Author | null;
-  createdAt?: Date;
-  content?: any;
-  likes?: number | null;
+  id: string;
+  author: Author | null;
+  createdAt: Date;
+  content: any;
+  likes: number | null;
 }
 
 export interface IPost {
@@ -27,6 +27,6 @@ export interface IPost {
   customer?: Customer | null;
   createdAt?: Date;
   content?: string;
-  comments?: Comment[];
+  comments: Comment[];
 }
 

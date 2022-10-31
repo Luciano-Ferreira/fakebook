@@ -1,6 +1,6 @@
 import { format, formatDistanceToNow } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
-import { FormEvent, useState } from "react";
+import { ChangeEvent, EventHandler, FormEvent, InvalidEvent, SyntheticEvent, useState } from "react";
 
 import { Avatar } from "../Avatar";
 import { Comment } from "./Comment";
@@ -8,7 +8,7 @@ import { Loading } from "../Loading";
 
 import { IPost } from "./@types";
 import styles from "./styles.module.scss";
-import { IComment } from "./Comment/@types";
+
 
 export function Post({
   id,
@@ -17,7 +17,18 @@ export function Post({
   comments,
   content,
 }: IPost): JSX.Element {
-  const [newComment, setNewComment] = useState("");
+  const [newComment, setNewComment] = useState({
+    id: 'cl58rzsq094vq0clv2wpauw95',
+    author: {
+      id: '',
+      avatar: '',
+      name: '',
+      role: ''
+    },
+    createdAt: new Date(),
+    content: '',
+    likes: 0
+  });
 
   const [stateComments, setStateComments] = useState(comments);
 
@@ -41,17 +52,39 @@ export function Post({
     }
   );
 
-  function handleNewCommentInvalid(event: FormEvent) {
-    console.log(event);
-  }
-  function handleCreateNewComment(event: any) {
+  function handleCreateNewComment(event: ChangeEvent<HTMLFormElement>) {
     event?.preventDefault();
 
-    setNewComment("");
+    setStateComments([...stateComments, newComment])
+
+    setNewComment({
+      id: 'cl58rzsq094vq0clv2wpauw95',
+      author: {
+        id: '',
+        avatar: '',
+        name: '',
+        role: ''
+      },
+      createdAt: new Date(),
+      content: '',
+      likes: 0
+    });
   }
 
-  function handleNewCommentChange(event: any) {
-    setNewComment(event?.target.value);
+  function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
+    event.target.setCustomValidity('');
+    
+    setNewComment(comment => {
+      return {
+        ...comment,
+        content: event.target.value,
+        createdAt: new Date()
+      }
+    });
+  }
+
+  function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
+    event.target.setCustomValidity('Esse campo é obrigatorio!')
   }
 
   function deleteComment(commentToDelete: string) {
@@ -86,9 +119,10 @@ export function Post({
         <textarea
           name="comment"
           placeholder="Deixe um comentário"
-          value={newComment}
+          value={newComment.content}
           onChange={handleNewCommentChange}
           onInvalid={handleNewCommentInvalid}
+          required
         />
         <footer>
           <button type="submit">Publicar</button>
