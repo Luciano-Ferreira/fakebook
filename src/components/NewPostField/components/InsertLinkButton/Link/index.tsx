@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSelected } from 'slate-react';
 
 interface Props {
@@ -7,7 +8,7 @@ interface Props {
 }
 
 export const Link = ({ attributes, children, element }: Props) => {
-  const selected = useSelected()
+  const selected = useSelected();
   return (
     <a
       {...attributes}
@@ -22,8 +23,8 @@ export const Link = ({ attributes, children, element }: Props) => {
       {children}
       <InlineChromiumBugfix />
     </a>
-  )
-}
+  );
+};
 
 
 const InlineChromiumBugfix = () => (
@@ -33,5 +34,5 @@ const InlineChromiumBugfix = () => (
   >
     ${String.fromCodePoint(160) /* Non-breaking space */}
   </span>
-)
+);
 

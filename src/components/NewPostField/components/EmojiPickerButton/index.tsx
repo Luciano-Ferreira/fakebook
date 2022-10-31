@@ -1,4 +1,6 @@
-import { ReactEditor, useSlate } from 'slate-react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useSlate } from 'slate-react';
 import { Button } from '../../components/Button';
 import { Icon } from '../../components/Icon';
 import { Popover } from '@headlessui/react';
@@ -17,7 +19,7 @@ export const EmojiPickerButton = ({ format, icon }: { format: string, icon?: any
     }, 100);
     
 
-    Editor.insertText(editor, emoji.native!)
+    Editor.insertText(editor, emoji.native!);
   };
   return (
     <Popover>
@@ -27,7 +29,7 @@ export const EmojiPickerButton = ({ format, icon }: { format: string, icon?: any
             <Button
               active={open}
               onMouseDown={(event: { preventDefault: () => void; }) => {
-                event.preventDefault()
+                event.preventDefault();
               }}
             >
               <Icon>{icon}</Icon>
@@ -39,5 +41,5 @@ export const EmojiPickerButton = ({ format, icon }: { format: string, icon?: any
         </>
       )}
     </Popover>
-  )
-}
+  );
+};

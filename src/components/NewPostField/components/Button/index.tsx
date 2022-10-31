@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, { PropsWithChildren, Ref } from 'react';
 import classNames from 'classnames';
 import { BaseProps } from '..';
@@ -13,4 +14,4 @@ export const Button = React.forwardRef(
     >
     </span>
   )
-)
+);

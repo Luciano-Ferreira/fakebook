@@ -1,14 +1,14 @@
-import { format, formatDistanceToNow } from "date-fns";
-import ptBR from "date-fns/locale/pt-BR";
-import { ChangeEvent, InvalidEvent, useState } from "react";
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+import { ChangeEvent, InvalidEvent, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import { Avatar } from "../Avatar";
-import { Comment } from "./Comment";
-import { Loading } from "../Loading";
+import { Avatar } from '../Avatar';
+import { Comment } from './Comment';
+import { Loading } from '../Loading';
 
-import { IPost } from "./@types";
-import styles from "./styles.module.scss";
+import { IPost } from './@types';
+import styles from './styles.module.scss';
 
 
 export function Post({
@@ -39,7 +39,7 @@ export function Post({
 
   const publishedDatePostFormatted = format(
     new Date(createdAt),
-    "d' de 'LLLL' de 'Y' às 'HH':'mm",
+    'd\' de \'LLLL\' de \'Y\' às \'HH\':\'mm',
     {
       locale: ptBR,
     }
@@ -56,7 +56,7 @@ export function Post({
   function handleCreateNewComment(event: ChangeEvent<HTMLFormElement>) {
     event?.preventDefault();
 
-    setStateComments([...stateComments, newComment])
+    setStateComments([...stateComments, newComment]);
 
     setNewComment({
       id: uuid(),
@@ -80,12 +80,12 @@ export function Post({
         ...comment,
         content: event.target.value,
         createdAt: new Date()
-      }
+      };
     });
   }
 
   function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
-    event.target.setCustomValidity('Esse campo é obrigatorio!')
+    event.target.setCustomValidity('Esse campo é obrigatorio!');
   }
 
   function deleteComment(commentId: string) {
@@ -115,7 +115,7 @@ export function Post({
       </header>
       <div
         className={styles.content}
-        dangerouslySetInnerHTML={{ __html: content ? content : "" }}
+        dangerouslySetInnerHTML={{ __html: content ? content : '' }}
       ></div>
       <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>

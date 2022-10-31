@@ -10,5 +10,5 @@ export const DefaultElement = ({ attributes, children }: Props) => {
     <pre {...attributes}>
       <code>{children}</code>
     </pre>
-  )
-}
+  );
+};

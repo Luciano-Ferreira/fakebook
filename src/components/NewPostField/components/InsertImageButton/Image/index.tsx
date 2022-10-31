@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Transforms } from 'slate';
 
 import {
@@ -19,11 +20,11 @@ interface Props {
 }
 
 export const Image = ({ attributes, children, element }: Props) => {
-  const editor = useSlateStatic()
-  const path = ReactEditor.findPath(editor, element)
+  const editor = useSlateStatic();
+  const path = ReactEditor.findPath(editor, element);
 
-  const selected = useSelected()
-  const focused = useFocused()
+  const selected = useSelected();
+  const focused = useFocused();
   return (
     <div {...attributes}>
       {children}
@@ -43,5 +44,5 @@ export const Image = ({ attributes, children, element }: Props) => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};

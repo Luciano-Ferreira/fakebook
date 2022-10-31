@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,tsx,ts,js}"],
+  content: ['./src/**/*.{html,tsx,ts,js}'],
   theme: {
     extend: {
       colors: {
@@ -31,4 +32,4 @@ module.exports = {
     }
   },
   plugins: [],
-}
+};

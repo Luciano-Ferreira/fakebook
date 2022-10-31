@@ -34,5 +34,5 @@ export function Sidebar({ banner, username, bio, avatar }: Props): JSX.Element {
         </a>
       </footer>
     </aside>
-  )
+  );
 }

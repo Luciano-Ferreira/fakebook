@@ -13,5 +13,5 @@ export function Loading(): JSX.Element {
           fill="white"/>
       </svg>
     </div>
-  )
+  );
 }

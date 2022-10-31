@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { ThumbsUp, Trash } from 'phosphor-react';
 import { format, formatDistanceToNow } from 'date-fns';
 
@@ -9,17 +10,17 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { IComment } from './@types';
 
 import styles from './styles.module.scss';
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 
 export function Comment({ id, author, createdAt, content, likes, onDelete }: IComment): JSX.Element {
-  const [likeCount, setLikeCount] = useState(likes!)
+  const [likeCount, setLikeCount] = useState(likes!);
 
   if (!author || !createdAt || !content || !id) {
     return (
       <Loading />
-    )
+    );
   }
-  const publishedDateCommentFormatted = format(new Date(createdAt), "d' de 'LLLL' de 'Y' às 'HH':'mm", {
+  const publishedDateCommentFormatted = format(new Date(createdAt), 'd\' de \'LLLL\' de \'Y\' às \'HH\':\'mm', {
     locale: ptBR,
   });
 
@@ -29,11 +30,11 @@ export function Comment({ id, author, createdAt, content, likes, onDelete }: ICo
   });
 
   function handleDeleteComment() {
-    onDelete(id!)
+    onDelete(id!);
   }
 
   function handleLikeComment() {
-    setLikeCount(likeCount + 1)
+    setLikeCount(likeCount + 1);
   }
 
   return (
@@ -70,5 +71,5 @@ export function Comment({ id, author, createdAt, content, likes, onDelete }: ICo
         </footer>
       </div>
     </div>
-  )
+  );
 }

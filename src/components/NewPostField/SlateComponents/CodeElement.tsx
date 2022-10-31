@@ -10,5 +10,5 @@ export const CodeElement = ({ attributes, children }: Props) => {
     <pre {...attributes}>
       <code>{children}</code>
     </pre>
-  )
-}
+  );
+};

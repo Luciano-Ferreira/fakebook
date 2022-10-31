@@ -13,5 +13,5 @@ export function Avatar({ src, alt, withBorder }: Props): JSX.Element {
       src={src} 
       alt={alt}
     />
-  )
+  );
 }

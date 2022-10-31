@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import classNames from 'classnames';
 import React, { PropsWithChildren, Ref } from 'react';
 import { BaseProps } from '..';
@@ -17,4 +18,4 @@ export const Toolbar = React.forwardRef(
       )}
     />
   )
-)
+);

@@ -39,7 +39,7 @@ import styles from './styles.module.scss';
 const htk = 'mod+b' as string;
 const HOTKEYS = {
   'mod+b': 'bold'
-}
+};
 
 
 
@@ -51,7 +51,7 @@ export const NewPostField = () => {
 
   
   function handleSubmit(event: FormEvent) {
-    event.preventDefault()
+    event.preventDefault();
   }
 
   return (
@@ -79,9 +79,9 @@ export const NewPostField = () => {
           onKeyDown={(event: any) => {
             for (const hotkey in HOTKEYS) {
               if (isHotkey(hotkey, event as any)) {
-                event.preventDefault()
-                const mark = HOTKEYS[htk as keyof typeof HOTKEYS]
-                toggleMark(editor, mark)
+                event.preventDefault();
+                const mark = HOTKEYS[htk as keyof typeof HOTKEYS];
+                toggleMark(editor, mark);
               }
             }
           }}
@@ -102,6 +102,6 @@ export const NewPostField = () => {
       </footer>
 
     </form>
-  )
-}
+  );
+};
 

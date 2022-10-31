@@ -8,5 +8,5 @@ interface Props {
 export const Portal = ({ children }: Props) => {
   return typeof document === 'object'
     ? ReactDOM.createPortal(children, document.body)
-    : null
-}
+    : null;
+};
