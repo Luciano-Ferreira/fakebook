@@ -6,7 +6,7 @@ function App() {
 
   return (
     <Feed />
-  )
+  );
 }
 
-export default App
+export default App;
