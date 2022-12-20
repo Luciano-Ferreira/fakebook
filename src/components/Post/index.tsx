@@ -90,8 +90,6 @@ export function Post({
   }
 
   function deleteComment(commentId: string) {
-    // remover um comentario (estado)
-
     const commentsWithoutDeletedOne = stateComments?.filter((comment) => {
       return comment.id !== commentId;
     });
@@ -104,7 +102,7 @@ export function Post({
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar src={customer?.avatar} withBorder />
+          <Avatar src={customer?.avatar} withBorder  alt={customer?.name} />
           <div className={styles.authorInfo}>
             <strong>{customer?.name}</strong>
             <span>{customer?.role}</span>
